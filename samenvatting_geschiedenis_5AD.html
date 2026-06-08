@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samenvatting Geschiedenis 5AD</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --dark: #1c2736;
+    --navy: #243447;
+    --red: #c0392b;
+    --red-soft: #e05c4a;
+    --gold: #d4a017;
+    --gold-soft: #f0c040;
+    --blue: #2471a3;
+    --blue-soft: #5dade2;
+    --green: #1e8449;
+    --green-soft: #58d68d;
+    --light: #f4f6f8;
+    --card: #ffffff;
+    --border: #dde3ea;
+    --text: #1a2535;
+    --muted: #5d6e7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* === HEADER === */
+  header {
+    background: var(--dark);
+    color: white;
+    padding: 56px 40px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    background: var(--red);
+    border-radius: 50%;
+    opacity: 0.12;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 20%;
+    width: 220px; height: 220px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.10;
+  }
+  .header-tag {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    position: relative;
+  }
+  header .sub {
+    margin-top: 10px;
+    font-size: 1rem;
+    opacity: 0.6;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  .header-badges {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hbadge {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  /* === TOC === */
+  .toc {
+    background: var(--navy);
+    color: white;
+    padding: 28px 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .toc-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.45;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 6px;
+  }
+  .toc a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 500;
+    padding: 7px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .toc a:hover { background: rgba(255,255,255,0.09); color: white; }
+  .toc a .tn {
+    background: var(--red);
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* === MAIN === */
+  main {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 44px 24px 80px;
+  }
+
+  /* === CHAPTER HEADER === */
+  .ch {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 58px;
+    margin-bottom: 6px;
+  }
+  .ch-num {
+    background: var(--red);
+    color: white;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .ch-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    color: var(--dark);
+  }
+  .ch-date {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .ch-bar {
+    height: 3px;
+    background: linear-gradient(to right, var(--red), transparent);
+    border-radius: 2px;
+    margin-bottom: 22px;
+  }
+
+  /* === CARDS === */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(26,37,53,0.05);
+  }
+  .card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--dark);
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  /* === GRID CARDS === */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 16px; }
+
+  .mini-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 5px rgba(26,37,53,0.04);
+  }
+  .mini-card h4 {
+    font-weight: 700;
+    font-size: 0.87rem;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .mini-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+  .mini-card ul { list-style: disc; padding-left: 16px; }
+  .mini-card ul li { font-size: 0.82rem; color: var(--muted); padding: 2px 0; }
+
+  /* Accented mini-cards */
+  .mc-red { border-left: 4px solid var(--red); }
+  .mc-blue { border-left: 4px solid var(--blue); }
+  .mc-green { border-left: 4px solid var(--green); }
+  .mc-gold { border-left: 4px solid var(--gold); }
+  .mc-navy { border-left: 4px solid var(--navy); }
+
+  /* === PERSON CARD === */
+  .person {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    border-left: 5px solid var(--red);
+    box-shadow: 0 2px 8px rgba(26,37,53,0.05);
+  }
+  .person .p-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--dark);
+  }
+  .person .p-role {
+    font-size: 0.8rem;
+    color: var(--red);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+    margin-top: 2px;
+  }
+
+  /* === DARK BOX === */
+  .dark-box {
+    background: var(--dark);
+    color: white;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+  }
+  .dark-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--gold-soft);
+    margin-bottom: 12px;
+  }
+  .dark-box p, .dark-box li { font-size: 0.88rem; opacity: 0.88; line-height: 1.7; }
+
+  /* === RED BOX === */
+  .red-box {
+    background: linear-gradient(135deg, var(--red) 0%, #9b2335 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .red-box h3 { font-weight: 700; font-size: 0.95rem; margin-bottom: 9px; }
+  .red-box p { font-size: 0.88rem; opacity: 0.92; }
+
+  /* === GOLD BOX === */
+  .gold-box {
+    background: #fffbeb;
+    border: 1px solid #f0c040;
+    border-left: 5px solid var(--gold);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+  .gold-box h4 { font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; color: #7d6000; }
+  .gold-box p { font-size: 0.86rem; color: #5a4800; }
+
+  /* === BLUE BOX === */
+  .blue-box {
+    background: #eaf3fb;
+    border: 1px solid #a9cce3;
+    border-left: 5px solid var(--blue);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .blue-box h4 { font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; color: var(--blue); }
+  .blue-box p { font-size: 0.86rem; color: #1a4a70; }
+
+  /* === NUMBERED LIST === */
+  .nlist { list-style: none; }
+  .nlist > li {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .nlist > li:last-child { border-bottom: none; }
+  .nbadge {
+    background: var(--dark);
+    color: white;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .ncontent strong { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+  .ncontent p { font-size: 0.84rem; color: var(--muted); }
+
+  /* === KV LIST === */
+  .kv { list-style: none; }
+  .kv li {
+    display: flex;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.87rem;
+    align-items: flex-start;
+  }
+  .kv li:last-child { border-bottom: none; }
+  .kv .k {
+    font-weight: 700;
+    min-width: 100px;
+    flex-shrink: 0;
+    color: var(--dark);
+    font-size: 0.83rem;
+    padding-top: 1px;
+  }
+  .kv .v { color: var(--muted); }
+
+  /* === TIMELINE === */
+  .timeline { position: relative; padding-left: 26px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 6px; bottom: 6px;
+    width: 2px; background: #dde3ea;
+  }
+  .tl-item { position: relative; padding-bottom: 22px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot {
+    position: absolute;
+    left: -22px; top: 5px;
+    width: 18px; height: 18px;
+    background: var(--red);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--red);
+  }
+  .tl-item strong { font-weight: 700; font-size: 0.88rem; display: block; margin-bottom: 3px; color: var(--dark); }
+  .tl-item p { font-size: 0.83rem; color: var(--muted); }
+
+  /* === BADGES === */
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 10px;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .b-red { background: #fde8e5; color: #922b21; }
+  .b-blue { background: #d6eaf8; color: #1a5276; }
+  .b-green { background: #d5f5e3; color: #1a5e32; }
+  .b-gold { background: #fef9e7; color: #7d6608; }
+  .b-dark { background: var(--dark); color: white; }
+
+  /* === COMPARISON TABLE === */
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+  }
+  .compare th {
+    background: var(--dark);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+  .compare td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    vertical-align: top;
+  }
+  .compare tr:nth-child(even) td { background: var(--light); }
+  .compare td:first-child { font-weight: 600; color: var(--dark); }
+
+  /* === DIVIDER === */
+  .divider {
+    height: 3px;
+    background: linear-gradient(to right, var(--red), transparent);
+    border-radius: 2px;
+    margin-bottom: 22px;
+  }
+
+  ul.plain { list-style: disc; padding-left: 20px; }
+  ul.plain li { padding: 3px 0; font-size: 0.86rem; color: var(--muted); }
+  ul.plain li strong { color: red; }
+  p.lead { font-size: 0.94rem; color: var(--muted); margin-bottom: 14px; line-height: 1.8; }
+
+  .quote {
+    border-left: 4px solid var(--gold);
+    background: #fffdf0;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #5a4820;
+    margin: 12px 0;
+  }
+
+  .warn {
+    background: #fdf3f1;
+    border: 1px solid #f5c6be;
+    border-left: 4px solid var(--red);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.86rem;
+    color: #7b2d22;
+    margin-bottom: 14px;
+  }
+  .warn strong { color: var(--red); }
+
+  @media (max-width:660px) {
+    header { padding: 36px 18px 30px; }
+    header h1 { font-size: 1.9rem; }
+    main { padding: 24px 14px 60px; }
+    .grid2,.grid3,.grid4 { grid-template-columns: 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .toc { padding: 20px 18px; }
+  }
+  @media print {
+    body { background: white; font-size: 12px; }
+    header, .toc { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card, .mini-card, .person { break-inside: avoid; }
+    .ch { break-before: auto; margin-top: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  
+  <div class="header-tag">Examensamenvatting</div>
+  <h1>Geschiedenis<br>1919 – 1942</h1>
+  <p class="sub">5AD — Volledig overzicht leerstof</p>
+  <div class="header-badges">
+    <span class="hbadge">Vrede van Versailles</span>
+    <span class="hbadge">Russische Revolutie</span>
+    <span class="hbadge">Interbellum</span>
+    <span class="hbadge">Grote Depressie</span>
+    <span class="hbadge">Nazisme</span>
+    <span class="hbadge">WOII 1939–1942</span>
+  </div>
+</header>
+
+<!-- TOC -->
+<div class="toc">
+  <a href="index.html">Godsdienst</a>
+  <div class="toc-label">Inhoud</div>
+  <div class="toc-grid">
+    <a href="#h1"><span class="tn">1</span> Vrede van Versailles (1919)</a>
+    <a href="#h2"><span class="tn">2</span> Russische Revolutie (1917)</a>
+    <a href="#h3"><span class="tn">3</span> Interbellum: Oude Orde</a>
+    <a href="#h4"><span class="tn">4</span> Interbellum: Westerse democratie</a>
+    <a href="#h5"><span class="tn">5</span> Interbellum: Communisme in Rusland</a>
+    <a href="#h6"><span class="tn">6</span> Interbellum: Fascisme in Italië</a>
+    <a href="#h7"><span class="tn">7</span> De Grote Depressie + FDR</a>
+    <a href="#h8"><span class="tn">8</span> Nazisme in Duitsland</a>
+    <a href="#h9"><span class="tn">9</span> Aanloop naar WOII</a>
+    <a href="#h10"><span class="tn">10</span> WOII: 1939–1942</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 1. VREDE VAN VERSAILLES -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h1">
+  <div class="ch-num">1</div>
+  <div>
+    <div class="ch-title">De Vrede van Versailles</div>
+    <div class="ch-date">1919</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="grid2">
+  <div class="mini-card mc-red">
+    <h4>🕊️ Einde WOI</h4>
+    <ul>
+      <li><strong>Vrede van Brest-Litovsk:</strong> Rusland – Duitsland (Rusland stapt uit WOI)</li>
+      <li><strong>Wapenstilstand: 11/11/1918</strong></li>
+    </ul>
+  </div>
+  <div class="mini-card mc-gold">
+    <h4>📍 Locatie: Versailles</h4>
+    <p>Symbolisch: in 1871 riepen de Duitsers hier hun Tweede Rijk uit na de Frans-Duitse Oorlog. Frankrijk wil dit symbolisch terugpakken.</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3>👔 De Grote Vier — Vredesconferentie in Parijs</h3>
+  <div class="grid2" style="margin-top:10px;">
+    <div class="mini-card mc-blue">
+      <h4>🇺🇸 Woodrow Wilson (VS)</h4>
+      <p>Wil een <strong>rechtvaardige, menselijke vrede</strong>. Pleit voor het zelfbeschikkingsrecht van volkeren (14-puntenplan). Stichter van de <strong>Volkenbond</strong>.</p>
+    </div>
+    <div class="mini-card mc-red">
+      <h4>🇫🇷 Clemenceau (FR)</h4>
+      <p>Wil Duitsland zo <strong>zwaar mogelijk straffen</strong>. "Le Tigre" — harde lijn.</p>
+    </div>
+    <div class="mini-card mc-navy">
+      <h4>🇬🇧 Lloyd George (GB)</h4>
+      <p>Staat dichter bij Clemenceau, maar begrijpt dat een te harde vrede gevaarlijk kan zijn voor de toekomstige stabiliteit.</p>
+    </div>
+    <div class="mini-card mc-green">
+      <h4>🇮🇹 Orlando (IT)</h4>
+      <p>Wil zoveel mogelijk grondgebied voor Italië. Teleurgesteld in de resultaten.</p>
+    </div>
+  </div>
+  <div class="warn" style="margin-top:8px;"><strong>Let op:</strong> Duitsland moest tekenen, Rusland werd niet uitgenodigd (beschouwd als verraders). 32 landen namen deel, elk land mocht alleen meestemmen over wat hen aanging.</div>
+</div>
+
+<div class="card">
+  <h3>📜 Verdrag van Versailles — Maatregelen tegen Duitsland</h3>
+  <ul class="kv">
+    <li><span class="k">Grondgebied</span><span class="v">Duitsland verloor gebieden aan <strong>Frankrijk</strong> (Elzas-Lotharingen), <strong>Polen</strong>, <strong>Denemarken</strong> en <strong>België</strong>.</span></li>
+    <li><span class="k">Herstelbetalingen</span><span class="v">Miljarden aan herstelbetalingen (schadevergoedingen). Duitsland betaalde tot <strong>2010</strong>.</span></li>
+    <li><span class="k">Oorlogsschuld</span><span class="v">Artikel 231: <strong>Duitsland draagt de volledige morele schuld</strong> voor de oorlog. Dit werd door de Duitsers als de ergste vernedering beschouwd (de "Diktat").</span></li>
+    <li><span class="k">Leger</span><span class="v">Zware beperkingen opgelegd aan het Duitse leger.</span></li>
+    <li><span class="k">Andere rijken</span><span class="v">Oostenrijk-Hongarije wordt opgedeeld. Het Ottomaanse Rijk verliest grondgebied (→ moderne Turkije onder Atatürk).</span></li>
+  </ul>
+</div>
+
+<div class="dark-box">
+  <h3>🌍 De Volkenbond (League of Nations)</h3>
+  <ul class="plain" style="color:rgba(255,255,255,0.85);">
+    <li>Idee van <strong>Woodrow Wilson</strong>; hoofdzetel in <strong>Genève</strong>.</li>
+    <li>Doel: internationale samenwerking en het voorkomen van oorlogen.</li>
+    <li>Probleem: de <strong>VS deed zelf NIET mee</strong> — de Senaat keurde het niet goed. Wilson bleef ijveren maar stierf aan een hartstilstand.</li>
+    <li>Werkte enkel voor <strong>kleine conflicten</strong>; machteloos bij grote crisissen.</li>
+    <li>Reden VS-weigering: Amerikanen wilden niet constant soldaten naar Europa sturen ("isolationisme").</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 2. RUSSISCHE REVOLUTIE -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h2">
+  <div class="ch-num">2</div>
+  <div>
+    <div class="ch-title">De Russische Revolutie</div>
+    <div class="ch-date">1917</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="card">
+  <h3>👑 Rusland onder Tsaar Nicolaas II — Zwaktes</h3>
+  <div class="grid3" style="margin-top:8px;">
+    <div class="mini-card mc-red">
+      <h4>Politiek</h4>
+      <p><strong>Absolute monarchie</strong> — totale macht bij de tsaar. Geen democratie, geen inspraak voor het volk.</p>
+    </div>
+    <div class="mini-card mc-gold">
+      <h4>Economisch &amp; Sociaal</h4>
+      <p>Rusland economisch en sociaal <strong>achterlijk</strong> in vergelijking met West-Europa.</p>
+    </div>
+    <div class="mini-card mc-blue">
+      <h4>Militair</h4>
+      <p>Verloor de <strong>Russo-Japanse Oorlog (1904-05)</strong>. Rusland had verouderde vloot; Japan had moderne Britse schepen.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>⚔️ Rusland in WOI — Ineenstorting</h3>
+  <ul class="plain">
+    <li>Weinig succesvol: gebiedsverlies, tekort aan voedsel, brandstof en wapens (slechts 1 wapen per 5 soldaten)</li>
+    <li>Voortdurend nieuwe troepen nodig → laag moreel</li>
+    <li>Roddels over <strong>Grigori Raspoetin</strong>: zou de echte baas van Rusland zijn en minnaar van de tsarina</li>
+    <li><strong>Barre winter 1917</strong> → te weinig voedsel en brandstof → <strong>Februarirevolutie</strong></li>
+    <li>Middenklasse stelt een <strong>Voorlopige Regering</strong> in, maar die kan haar beloften niet waarmaken</li>
+    <li>Tsaar + familie worden gevangengezet</li>
+  </ul>
+</div>
+
+<div class="person">
+  <div class="p-name">Vladimir Lenin</div>
+  <div class="p-role">Leider van de Oktoberrevolutie — Bolsjewieken</div>
+  <ul class="kv">
+    <li><span class="k">Ideologie</span><span class="v"><strong>Communisme</strong>: arbeiders nemen alles af van de rijken en herverdelen dit (gebaseerd op Karl Marx: "Arbeiders, verenigt u!")</span></li>
+    <li><span class="k">Situatie</span><span class="v">In ballingschap in Zwitserland — zijn ideeën waren verboden in Rusland</span></li>
+    <li><span class="k">Duits plan</span><span class="v">Duitsland smukkelt Lenin Rusland binnen → hij moet Rusland destabiliseren zodat Duitsland een front kan sluiten</span></li>
+    <li><span class="k">Oktoberrevolutie</span><span class="v">Lenin pleegt een <strong>staatsgreep</strong> en brengt de communisten (<strong>Bolsjewieken</strong>) aan de macht</span></li>
+  </ul>
+</div>
+
+<div class="dark-box">
+  <h3>🔴 Beslissingen na de Oktoberrevolutie</h3>
+  <ul class="plain" style="color:rgba(255,255,255,0.85);">
+    <li><strong>Executie van de tsaar en zijn volledige familie</strong></li>
+    <li>Maart 1918: Vrede met Duitsland (<strong>Vrede van Brest-Litovsk</strong>) = grote gebiedsverliezen (Finland, Baltische staten…) → beschouwd als verraad door de geallieerden</li>
+    <li>Invoering van het <strong>communisme</strong></li>
+    <li>Rusland wordt de <strong>USSR</strong> (Unie van Sovjet-Socialistische Republieken)</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 3. INTERBELLUM: OUDE ORDE -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h3">
+  <div class="ch-num">3</div>
+  <div>
+    <div class="ch-title">Interbellum: De Oude Orde Stort In Elkaar</div>
+    <div class="ch-date">1919 – 1939</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="blue-box">
+  <h4>📖 Definitie: Interbellum</h4>
+  <p>De <strong>periode tussen twee oorlogen</strong> (1919–1939). WOI is een enorm breukmoment: alles verandert — economisch, politiek, sociaal en cultureel.</p>
+</div>
+
+<div class="card">
+  <h3>💥 WOI als breukmoment — 4 domeinen</h3>
+  <div class="grid2" style="margin-top:8px;">
+    <div class="mini-card mc-gold">
+      <h4>💰 Economisch</h4>
+      <p>Enorme <strong>schulden</strong>, hoge <strong>inflatie</strong>, nood aan wederopbouw na de verwoesting.</p>
+    </div>
+    <div class="mini-card mc-blue">
+      <h4>🏛️ Politiek</h4>
+      <ul>
+        <li>Angst voor chaos en revolutie</li>
+        <li>Democratisering &amp; uitbreiding stemrecht</li>
+        <li>In BE: <strong>Akkoorden van Loppem</strong>:<br>– Algemeen enkelvoudig stemrecht voor mannen<br>– Stakingsrecht<br>– Gelijkheid NL-FR</li>
+        <li>Vrouwenstemrecht (BE &amp; FR pas later; Zwitserland het laatste)</li>
+      </ul>
+    </div>
+    <div class="mini-card mc-green">
+      <h4>👩 Sociaal</h4>
+      <p>Opkomst van <strong>vrouwenarbeid</strong>. Begin van de <strong>verzorgingsstaat</strong>.</p>
+    </div>
+    <div class="mini-card mc-red">
+      <h4>🎭 Cultureel</h4>
+      <p><strong>Trauma</strong> en ontgoocheling. "Nooit meer oorlog"-gevoel. Existentiële crisis: <em>"God is dood"</em>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📚 Sleutelbegrippen — ken ze exact!</h3>
+  <ul class="kv">
+    <li>
+      <span class="k">Totalitarisme</span>
+      <span class="v"><strong>Totale controle</strong> over elk aspect van het leven van de burger. De staat wil je <em>totale loyaliteit</em>. Geen privésfeer, geen vrije gedachte.</span>
+    </li>
+    <li>
+      <span class="k">Fascisme</span>
+      <span class="v">Elk individu moet zich onderwerpen aan het <strong>volk</strong>, en het volk moet gehoorzamen aan de <strong>leider</strong>. Symbool: de <em>fasces</em> (bundel stokken = kracht door eenheid). Nationalisme + sterk leiderschap + antidemocratie.</span>
+    </li>
+    <li>
+      <span class="k">Nationaalsocialisme (Nazisme)</span>
+      <span class="v"><strong>Extreme vorm van fascisme</strong>: enkel het eigen volk (het Arische ras) telt. Extreme antisemitisme en racisme. Streven naar <em>Lebensraum</em>.</span>
+    </li>
+    <li>
+      <span class="k">Communisme</span>
+      <span class="v">Alle productiemiddelen in staatsbezit. Geen privébezit. Gelijkheid voor iedereen. Gebaseerd op <strong>Karl Marx</strong>.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 4. WESTERSE DEMOCRATIE -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h4">
+  <div class="ch-num">4</div>
+  <div>
+    <div class="ch-title">Interbellum: De Westerse Liberale Democratieën</div>
+    <div class="ch-date">1919 – 1929</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<p class="lead">Na WOI zijn alle Europese landen (tijdelijk) democratieën. Ze kennen een <strong>moeilijke start</strong> (economische problemen, sociale onrust), maar vanaf <strong>1922/1924 trekt de economie aan</strong> en verdwijnt de onrust.</p>
+
+<div class="grid3">
+  <div class="mini-card mc-blue">
+    <h4>🏛️ Politiek</h4>
+    <ul>
+      <li>Liberale democratie</li>
+      <li>Algemeen enkelvoudig stemrecht</li>
+      <li>Meerdere partijen: <strong>pacificatiedemocratie</strong> + <strong>coalitieregeringen</strong></li>
+      <li>Socialisten winnen aan invloed</li>
+      <li>Katholieke partij wordt socialer</li>
+      <li>Uitbouw van de welvaartstaat</li>
+    </ul>
+  </div>
+  <div class="mini-card mc-gold">
+    <h4>💰 Economie</h4>
+    <ul>
+      <li><strong>Kapitalisme</strong>, maar overheid grijpt in</li>
+      <li>Sociale woningbouw</li>
+      <li>Overheid investeert in infrastructuur</li>
+      <li>Steun aan bedrijven en arbeiders in crisistijden</li>
+    </ul>
+  </div>
+  <div class="mini-card mc-green">
+    <h4>🎨 Cultuur: "Roaring 20's"</h4>
+    <ul>
+      <li>Vrijheid van expressie</li>
+      <li>Experimenteren met kunst, muziek, literatuur</li>
+      <li>Doorbreken van traditionele normen (rollen, moraal, seksualiteit)</li>
+      <li>Bevrijdend <em>én</em> choquerend</li>
+    </ul>
+  </div>
+</div>
+
+<div class="gold-box">
+  <h4>✅ Conclusie 1929: Het lijkt goed te gaan!</h4>
+  <p>Welvaart neemt toe, economische productie is verdubbeld t.o.v. 1913. Democratie lijkt te werken. Dan komt de Beurskrach en alles verandert…</p>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 5. COMMUNISME IN RUSLAND -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h5">
+  <div class="ch-num">5</div>
+  <div>
+    <div class="ch-title">Interbellum: Het Communisme in Rusland</div>
+    <div class="ch-date">1917 – 1939</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="card">
+  <h3>🔴 Sovjet-Unie onder Lenin (1918–1924)</h3>
+  <ul class="plain">
+    <li>1918–1922: Burgeroorlog, chaos en buitenlandse inmenging</li>
+    <li>Verlies van grondgebied (Finland, Baltische staten…)</li>
+    <li>Repressie als "noodmaatregel"</li>
+    <li>Lenin sterft in 1924 → beperkt succes, de revolutie is wel overleefd</li>
+  </ul>
+</div>
+
+<div class="person" style="border-left-color: #c0392b;">
+  <div class="p-name">Jozef Stalin</div>
+  <div class="p-role">Dictator USSR — 1924 tot 1953</div>
+  <ul class="kv">
+    <li><span class="k">Afkomst</span><span class="v">Georgiër, zoon van een schoenmaker. Gevolgd priesteropleiding → communist.</span></li>
+    <li><span class="k">Naam</span><span class="v">"Stalin" = staal (schuilnaam)</span></li>
+    <li><span class="k">Machtsgreep</span><span class="v">Verbannen van zijn rivaal <strong>Trotski</strong>. Uitvoering van <strong>zuiveringen</strong>: duizenden politieke tegenstanders via executies, rechtszaken en de <strong>Goelag</strong> (strafkampen).</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🐜 Communisme onder Stalin — Maatschappijbeeld: een mierenkolonie</h3>
+  <div class="grid2" style="margin-top:8px;">
+    <div class="mini-card mc-red">
+      <h4>🏛️ Politiek</h4>
+      <ul>
+        <li>Algemeen stemrecht, maar…</li>
+        <li>In theorie: bottom-up (volk beslist)</li>
+        <li>In praktijk: <strong>top-down</strong> (Stalin beslist)</li>
+      </ul>
+    </div>
+    <div class="mini-card mc-blue">
+      <h4>🎨 Cultuur</h4>
+      <ul>
+        <li>Verplichte vakbond voor kunstenaars</li>
+        <li>Kunst moet <strong>begrijpelijk, indrukwekkend en propagandistisch</strong> zijn</li>
+        <li><strong>Socialistisch realisme</strong></li>
+        <li>(Zelf)censuur</li>
+      </ul>
+    </div>
+    <div class="mini-card mc-gold">
+      <h4>🏭 Economie: Industrie</h4>
+      <ul>
+        <li><strong>Nationalisatie</strong> van alle fabrieken, spoorlijnen, mijnen…</li>
+        <li><strong>Vijfjarenplannen</strong> (planeconomie)</li>
+        <li>Succes: USSR wordt de <strong>2e grootste industrie ter wereld</strong></li>
+        <li>Maar: deportaties van hele volkeren omwille van economische noden</li>
+      </ul>
+    </div>
+    <div class="mini-card mc-red">
+      <h4>🌾 Economie: Landbouw</h4>
+      <ul>
+        <li><strong>Collectivisatie</strong>: boeren worden gedwongen samen te werken op staatsboerderijen</li>
+        <li>Massaal geweld, deportaties en hongersnood</li>
+        <li><strong>Holodomor</strong> (Oekraïne): ca. <strong>6 miljoen doden</strong></li>
+        <li>Resultaat: <strong>geen succes</strong></li>
+      </ul>
+    </div>
+    <div class="mini-card mc-green">
+      <h4>👥 Sociaal</h4>
+      <ul>
+        <li>"Welvaartstaat" voor de Volksgemeinschaft</li>
+        <li>Iedereen heeft werk, gratis gezondheidszorg, woning en onderwijs</li>
+        <li>Gelijkheid man–vrouw (officieel)</li>
+        <li>In het Westen: positief beeld bij links</li>
+      </ul>
+    </div>
+    <div class="mini-card mc-navy">
+      <h4>📢 Indoctrinatie</h4>
+      <ul>
+        <li>School en jeugdbeweging</li>
+        <li>Staat vs. familie (voorbeeldfiguur: <strong>Pavlik Morozov</strong> — kind dat zijn vader verklikte)</li>
+        <li>Propaganda via de <strong>"Pravda"</strong></li>
+        <li>Russificatie van andere volkeren</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 6. FASCISME IN ITALIË -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h6">
+  <div class="ch-num">6</div>
+  <div>
+    <div class="ch-title">Interbellum: Het Fascisme in Italië</div>
+    <div class="ch-date">1922 – 1943</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="card">
+  <h3>🇮🇹 Italië vóór het fascisme</h3>
+  <ul class="plain">
+    <li>1861: Eenmaking van Italië → liberale parlementaire democratie + constitutionele monarchie</li>
+    <li>1915: Italië treedt toe tot WOI aan de kant van de geallieerden</li>
+    <li>1919: teleurstelling na Versailles — Italië won weinig ondanks grote verliezen → "<strong>gemutileerde overwinning</strong>"</li>
+    <li>Sociale onrust + socialistische verkiezingswinst → angst voor communisme bij de elite</li>
+  </ul>
+</div>
+
+<div class="person">
+  <div class="p-name">Benito Mussolini</div>
+  <div class="p-role">Il Duce — Leider van het Fascisme</div>
+  <ul class="kv">
+    <li><span class="k">Achtergrond</span><span class="v">Schoolmeester, journalist en veteraan van WOI</span></li>
+    <li><span class="k">Stichting</span><span class="v">Stichtte de fascistische beweging — pragmatisch, niet dogmatisch</span></li>
+    <li><span class="k">Knokploeg</span><span class="v"><strong>Zwarthemden</strong>: paramilitaire groep die tegenstanders aanvalt</span></li>
+    <li><span class="k">Verkiezingen</span><span class="v">Aanvankelijk slechts 35 van 500 zetels</span></li>
+  </ul>
+</div>
+
+<div class="dark-box">
+  <h3>⚫ De "Mars op Rome" (oktober 1922) — Staatsgreep</h3>
+  <ul class="plain" style="color:rgba(255,255,255,0.85);">
+    <li>Mussolini marcheert met zijn Zwarthemden op Rome</li>
+    <li>De regering wil noodtoestand uitroepen, maar <strong>Koning Victor-Emmanuel III weigert</strong> te tekenen</li>
+    <li>De Koning benoemt Mussolini tot premier → de weg naar dictatuur ligt open</li>
+    <li>1924: Nieuwe verkiezingen met fraude → vervolgens: <strong>complete staatsgreep</strong></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🐝 Fascisme — Maatschappijbeeld: een bijenkorf</h3>
+  <div class="grid3" style="margin-top:8px;">
+    <div class="mini-card mc-red">
+      <h4>🏛️ Politiek</h4>
+      <ul>
+        <li>Één sterke leider: <strong>IL DUCE</strong></li>
+        <li>Doel: nationale revival ("glorie van het Romeinse Rijk")</li>
+        <li>Propaganda: cinema, posters, viriliteit, school</li>
+        <li>Geheime politie</li>
+      </ul>
+    </div>
+    <div class="mini-card mc-gold">
+      <h4>💰 Economie</h4>
+      <ul>
+        <li>Staat regelt de volledige economie</li>
+        <li>Streven naar <strong>autarkie</strong> (zelfvoorzienend)</li>
+        <li>Grote investeringen in infrastructuur</li>
+      </ul>
+    </div>
+    <div class="mini-card mc-blue">
+      <h4>👥 Sociaal &amp; Cultuur</h4>
+      <ul>
+        <li>Armoede blijft bestaan</li>
+        <li>Traditionele vrouwenrollen opgelegd</li>
+        <li>Racisme (o.a. antisemitisme, later)</li>
+        <li>Geen vrije pers</li>
+        <li>Staatsgodsdienst (akkoord met Vaticaan)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <h4>🌍 Impact van het fascisme</h4>
+  <p>Het fascisme diende als <strong>inspiratie voor heel Europa</strong>. Vanaf de jaren '30 begon Italië met territoriale uitbreiding (Ethiopië, Albanië…).</p>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 7. GROTE DEPRESSIE + FDR -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h7">
+  <div class="ch-num">7</div>
+  <div>
+    <div class="ch-title">De Grote Depressie &amp; Roosevelt (FDR)</div>
+    <div class="ch-date">1929 – 1939</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="card">
+  <h3>📉 Oorzaken Wall Street Crash (1929)</h3>
+  <div class="timeline" style="margin-top:12px;">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>Schuldeneconomie</strong>
+      <p>De wereldeconomie draaide op schulden en krediet. Massaproductie (auto's, radio's, kleren…) werd gekocht op krediet, want de lonen waren te laag om dit te betalen.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>Aandelen op geleend geld</strong>
+      <p>Steeds meer mensen kochten aandelen met geleend geld. Wanneer ze niet konden terugbetalen, daalde het vertrouwen.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>Massale verkoop → CRASH</strong>
+      <p>Iedereen verkocht tegelijk → <strong>40% beursdaling op 1 maand</strong> → 75% daling nationaal inkomen op 3 jaar (VS).</p>
+    </div>
+  </div>
+</div>
+
+<div class="grid2">
+  <div class="mini-card mc-red">
+    <h4>📊 Economische gevolgen</h4>
+    <ul>
+      <li>Bedrijven sluiten, banken gaan failliet</li>
+      <li>Massale werkloosheid</li>
+      <li>Consumptie daalt → nieuwe faillissementen</li>
+      <li>Wereldeconomie is vervlochten: depressie verspreidt zich wereldwijd</li>
+    </ul>
+  </div>
+  <div class="mini-card mc-navy">
+    <h4>🏛️ Politieke gevolgen</h4>
+    <ul>
+      <li>Vertrouwen in democratie daalt sterk</li>
+      <li>Extremen (communisten, fascisten) winnen aanhang</li>
+      <li>Vooral in jonge democratieën: roep om sterke leiders</li>
+      <li>Einde van veel democratieën in Europa</li>
+    </ul>
+  </div>
+</div>
+
+<div class="person">
+  <div class="p-name">Franklin Delano Roosevelt (FDR)</div>
+  <div class="p-role">32ste president VS — Democraat — 1933–1945</div>
+  <ul class="kv">
+    <li><span class="k">Context</span><span class="v">Zijn voorganger <strong>Hoover</strong> (Republikein, 1928–1932) deed niets: "De crisis lost zichzelf wel op." Geen hulp voor werklozen.</span></li>
+    <li><span class="k">Verkiezingswinst</span><span class="v">1932: FDR wint overtuigend. Belooft actie en hulp.</span></li>
+  </ul>
+</div>
+
+<div class="dark-box">
+  <h3>🆕 De New Deal — Economisch herstelplan</h3>
+  <div class="grid2" style="margin-top:12px;">
+    <div>
+      <ul class="plain" style="color:rgba(255,255,255,0.85);">
+        <li><strong>Hogere belastingen voor rijken</strong> (van 25% → ca. 80%)</li>
+        <li>Strengere regels voor banken en de beurs</li>
+        <li><strong>Werkloosheidsuitkeringen</strong></li>
+        <li>Publieke werken = jobs + economische return</li>
+        <li>Subsidies voor boeren en bedrijven</li>
+        <li>Bescherming vakbonden → hogere lonen</li>
+      </ul>
+    </div>
+    <div>
+      <p style="color:var(--gold-soft); font-weight:700; margin-bottom:8px;">Doel:</p>
+      <p style="color:rgba(255,255,255,0.85); font-size:0.86rem;">De <strong>koopkracht aanzwengelen</strong> zodat de economie opstart. FDR noemt dit "<em>priming the pump</em>".</p>
+      <p style="color:rgba(255,255,255,0.7); font-size:0.82rem; margin-top:10px;">Héél populair bij het gewone volk (propaganda via 'fireside chats'). Grote tegenstand van de rijken ("klassenverrader", "red man in the white house").</p>
+      <p style="color:rgba(255,255,255,0.7); font-size:0.82rem; margin-top:8px;">1936 en 1940 en 1944 herverkozen.</p>
+    </div>
+  </div>
+</div>
+
+<div class="gold-box">
+  <h4>📖 Keynesiaanse economie — J.M. Keynes</h4>
+  <p>In tijden van crisis moet de overheid <strong>schulden maken en investeren</strong>. Als het weer goed gaat, betaalt de overheid die schulden terug via belastingen en besparingen. De ideeën van FDR waren hierop gebaseerd.</p>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 8. NAZISME IN DUITSLAND -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h8">
+  <div class="ch-num">8</div>
+  <div>
+    <div class="ch-title">Het Nazisme in Duitsland</div>
+    <div class="ch-date">1933 – 1939</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="person">
+  <div class="p-name">Adolf Hitler</div>
+  <div class="p-role">Führer van Nazi-Duitsland</div>
+  <div class="timeline" style="margin-top:12px;">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>Oorsprong</strong>
+      <p>Oostenrijker. In 1914 meldt hij zich vrijwillig aan bij het Duitse leger in WOI.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>1919: Na WOI</strong>
+      <p>Werkt als spion van het leger in politieke groeperingen. Sluit zich aan bij de <strong>DAP</strong>.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>1920: Leider NSDAP</strong>
+      <p>Neemt de leiding over van de <strong>NSDAP</strong> (nationaalsocialistische partij).</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>1923: Bierkellerputsch</strong>
+      <p>Mislukte staatsgreep in München → gevangenis → schrijft <strong>"Mein Kampf"</strong> (zijn ideologie). Populariteit daalt aanvankelijk.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>1929–1932: Grote Depressie = doorbraak</strong>
+      <p>Door de crisis vinden steeds meer mensen zijn platform aantrekkelijk. Zetels: 12 → 107 → 230 → 196.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>Januari 1933: Hitler wordt kanselier</strong>
+      <p>Industriëlen en conservatieven overtuigen president <strong>Hindenburg</strong> om hem als kanselier te benoemen in een coalitie — ze denken hem te kunnen controleren.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🔥 Hitler grijpt de macht — Stap voor stap</h3>
+  <ol class="nlist">
+    <li>
+      <div class="nbadge">1</div>
+      <div class="ncontent">
+        <strong>Rijksdagbrand (1933)</strong>
+        <p>Het parlement brandt af. Communisten krijgen de schuld. Hindenburg schort burgerrechten op.</p>
+      </div>
+    </li>
+    <li>
+      <div class="nbadge">2</div>
+      <div class="ncontent">
+        <strong>Verbod communisten &amp; Bruinhemden</strong>
+        <p>Communistische partij verboden. Bruinhemden (SA) overal aanwezig als intimidatiemiddel.</p>
+      </div>
+    </li>
+    <li>
+      <div class="nbadge">3</div>
+      <div class="ncontent">
+        <strong>Dictatoriale machten gestemd</strong>
+        <p>Het parlement stemt zichzelf weg — geeft Hitler alle macht.</p>
+      </div>
+    </li>
+    <li>
+      <div class="nbadge">4</div>
+      <div class="ncontent">
+        <strong>1934: President Hindenburg sterft</strong>
+        <p>Hitler neemt ook de functie van president over → absolute macht. Nacht van de Lange Messen: interne rivalen SA-leiders worden vermoord.</p>
+      </div>
+    </li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3>⚡ De Nazi-Staat — Politiek, Economie, Sociaal, Cultuur</h3>
+  <div class="grid2" style="margin-top:8px;">
+    <div class="mini-card mc-red">
+      <h4>🏛️ Politiek</h4>
+      <ul>
+        <li>Leiderscultus: <strong>"Der Führer"</strong> (Eén volk, één rijk, één leider)</li>
+        <li>Alle andere partijen afgeschaft</li>
+        <li>Symbolen en massaparades</li>
+        <li>Repressie via <strong>Gestapo</strong> (geheime politie) en <strong>SS</strong></li>
+        <li>Concentratiekampen voor tegenstanders</li>
+        <li>Propaganda via radio + volledige controle informatie</li>
+      </ul>
+    </div>
+    <div class="mini-card mc-gold">
+      <h4>💰 Economie</h4>
+      <ul>
+        <li>Verplichte samenwerking werkgevers–werknemers</li>
+        <li>Overheidscontrole over productie, maar bedrijven blijven privé</li>
+        <li>Grote investeringen in infrastructuur (Autobahn) en <strong>herbewapening</strong></li>
+        <li>Streven naar <strong>autarkie</strong> (zelfvoorzienend)</li>
+        <li>1936: <strong>Vierjarenplan</strong></li>
+      </ul>
+    </div>
+    <div class="mini-card mc-blue">
+      <h4>👥 Sociaal</h4>
+      <ul>
+        <li>Lage lonen, maar soort "welvaartstaat" voor de <em>Volksgemeinschaft</em></li>
+        <li><strong>Hitlerjugend</strong> (jongens) / <strong>BDM</strong> (meisjes)</li>
+        <li>Belofte van betere tijden</li>
+        <li>Traditionele man-vrouwrollen</li>
+      </ul>
+    </div>
+    <div class="mini-card mc-green">
+      <h4>🎨 Cultuur</h4>
+      <ul>
+        <li>Cultuur als middel om emoties te sturen</li>
+        <li>Film (vb. <strong>Leni Riefenstahl</strong>)</li>
+        <li>Architectuur (vb. <strong>Germania</strong> – Albert Speer)</li>
+        <li>Massaparades (Neurenberg)</li>
+        <li>Geschiedenis &amp; archeologie voor legitimatie</li>
+        <li>Moderne kunst = "<strong>ontaard</strong>"</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="red-box">
+  <h3>☠️ Racisme — De kern van het nazisme</h3>
+  <ul class="plain" style="color:rgba(255,255,255,0.9);">
+    <li><strong>Sociaal-Darwinisme</strong> (pseudowetenschap): "survival of the fittest" toegepast op rassen</li>
+    <li><strong>Eugenetica</strong>: het "verbeteren" van het mensenras via selectie</li>
+    <li><strong>Übermenschen</strong> (superieure Ariërs) vs. <strong>Untermenschen</strong> (inferieure volkeren)</li>
+    <li>Strijd om <strong>Lebensraum</strong> (leefruimte in het Oosten)</li>
+    <li><strong>Joden</strong>: beschouwd als geen echte mensen, gelijkgesteld met ratten. Let op: het gaat om <em>afkomst</em>, niet religie!</li>
+    <li><strong>Rassenwetten (1935)</strong>: Joden worden rechtloos gemaakt</li>
+    <li><strong>Kristallnacht (1938)</strong>: georganiseerde pogrom — joodse winkels, synagogen vernield, 91 doden</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 9. AANLOOP NAAR WOII -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h9">
+  <div class="ch-num">9</div>
+  <div>
+    <div class="ch-title">De Aanloop naar de Tweede Wereldoorlog</div>
+    <div class="ch-date">1931 – 1939</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="blue-box">
+  <h4>📖 Waarom was er opnieuw oorlog?</h4>
+  <p>Twee grote krachten: (1) Duitslands strijd om de <strong>macht over het continent</strong> en (2) een <strong>ideologische strijd</strong> — democratie vs. fascisme vs. communisme. De oorlog begon eigenlijk al in <strong>1935</strong>, niet in 1939.</p>
+</div>
+
+<div class="card">
+  <h3>🇯🇵 Het Imperialisme van Japan</h3>
+  <ul class="plain">
+    <li>Jaren '20: Democratie verliest van fascisme in Japan. Groeiend imperialisme.</li>
+    <li>1932: Japan valt <strong>China</strong> binnen</li>
+    <li>Reactie Volkenbond: onmachtig — Japan verlaat de Volkenbond</li>
+    <li>1937/38: <strong>Rape of Nanjing</strong> — massaslachting van Chinese burgers</li>
+    <li>Japan controleert een groot deel van de Chinese kust</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🇪🇸 De Spaanse Burgeroorlog (1936–1939)</h3>
+  <ul class="plain">
+    <li>1931: Spanje zet de koning af → republiek</li>
+    <li>1936: Fascistische coup van het leger onder <strong>Generaal Franco</strong></li>
+    <li>Duitsland en Italië steunen Franco → oefenterrein voor hun wapentuig (vb. bombardement van Guernica)</li>
+    <li>1939: Franco wint → tot 1975 blijft Spanje een fascistische dictatuur</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🇩🇪 Duitsland — Hitlers opmars</h3>
+  <div class="timeline" style="margin-top:12px;">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>1933: Hitler aan de macht</strong>
+      <p>Wil de "Diktat van Versailles" ongedaan maken. Begint <em>in het geheim</em> het leger te versterken.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>1936: Rijnland</strong>
+      <p>Hitler stuurt soldaten het Rijnland in (verboden door Versailles). Geen reactie van Frankrijk of GB.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>Maart 1938: Anschluss — Oostenrijk</strong>
+      <p>Inlijving van Oostenrijk via een referendum. Geen weerstand.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>September 1938: Sudetenland (Tsjecho-Slowakije)</strong>
+      <p>Hitler eist het Sudetenland op. Conferentie van München.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>Maart 1939: Rest van Tsjecho-Slowakije</strong>
+      <p>Hitler neemt heel Tsjecho-Slowakije in. Belofte gebroken → appeasement werkt niet.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>Augustus 1939: Niet-Aanvalspact USSR–Duitsland</strong>
+      <p>Geheime deal: Polen wordt verdeeld. Duitsland kan nu twee-frontoorlog vermijden.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <strong>1 september 1939: Invasie van Polen = BEGIN WOII</strong>
+      <p>Duitsland valt Polen binnen. GB en FR verklaren de oorlog aan Duitsland.</p>
+    </div>
+  </div>
+</div>
+
+<div class="dark-box">
+  <h3>🕊️ Conferentie van München — Appeasement</h3>
+  <ul class="plain" style="color:rgba(255,255,255,0.85);">
+    <li><strong>Appeasement</strong> = beleid van tegemoetkomingen aan Hitler om oorlog te vermijden (FR &amp; GB)</li>
+    <li>Waarom appeasement?
+      <ul class="plain" style="margin-top:6px; margin-left:12px; color:rgba(255,255,255,0.7);">
+        <li>Trauma van WOI — niemand wil opnieuw oorlog</li>
+        <li>Economische crisis — legers zijn zwak</li>
+        <li>Sympathie voor Duitslands "rechtvaardige eisen"</li>
+        <li>Hoop dat Hitler ophoudt</li>
+      </ul>
+    </li>
+    <li>GB premier Chamberlain: <em>"Peace in our time"</em> → naïef gebleken</li>
+    <li>1939: Hitler breekt zijn belofte → appeasement heeft gefaald</li>
+  </ul>
+  <div class="quote" style="background:rgba(255,255,255,0.1); border-color: var(--gold-soft); color:var(--gold-soft);">
+    Hitlers doelen: <strong>Lebensraum</strong> in het Oosten + Slavische volkeren als slaven.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 10. TWEEDE WERELDOORLOG 1939-1942 -->
+<!-- ══════════════════════════════════════════ -->
+<div class="ch" id="h10">
+  <div class="ch-num">10</div>
+  <div>
+    <div class="ch-title">Tweede Wereldoorlog (1939–1942)</div>
+    <div class="ch-date">Triomf van de Asmogendheden — Enkel voor 5AD!</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="red-box">
+  <h3>⚡ Blitzkrieg — De onweerstaanbare aanvalstactiek</h3>
+  <p>Snelle, gecoördineerde aanvallen met tanks, vliegtuigen en gemotoriseerde infanterie. De vijand krijgt geen tijd om te reageren. Doel: zo snel mogelijk doorbreken en omsingelen.</p>
+</div>
+
+<div class="card">
+  <h3>🇵🇱 Polen: 1 september 1939</h3>
+  <ul class="plain">
+    <li>Duitsland valt Polen binnen met Blitzkrieg</li>
+    <li>Geheim akkoord met USSR: Polen wordt van twee kanten aangevallen</li>
+    <li>Polen op enkele weken verslagen</li>
+    <li>Daarna: <strong>Spookoorlog</strong> — FR en UK verklaren de oorlog, maar er gebeurt maandenlang niets</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🇫🇷 Slag om Frankrijk — Mei 1940</h3>
+  <ul class="kv">
+    <li><span class="k">🇳🇱 Nederland</span><span class="v">Snel bezet. Rotterdam gebombardeerd.</span></li>
+    <li><span class="k">🇧🇪 België</span><span class="v">Snel bezet. Belgisch leger geeft zich over. Evacuatie van geallieerde troepen via <strong>Duinkerke</strong>.</span></li>
+    <li><span class="k">🇬🇧 Verenigd Koninkrijk</span><span class="v">Troepen geëvacueerd via Duinkerke. Churchill neemt leiding over. Weigert te capituleren.</span></li>
+    <li><span class="k">🇫🇷 Frankrijk</span><span class="v">Snel verslagen. Capitulatie. Wapenstilstand. Noord-FR bezet, Zuid-FR als collaborerende "<strong>Vichy-staat</strong>" onder Pétain. <strong>De Gaulle</strong> vlucht naar Londen — vrij Frankrijk.</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>✈️ De Slag om Engeland (juli – oktober 1940)</h3>
+  <ul class="plain">
+    <li>Hitler wil GB op de knieën krijgen via de "<strong>Blitz op Engeland</strong>" (bombardementen)</li>
+    <li>Keerpunt: de <strong>Royal Air Force (RAF)</strong> weerstaat de Luftwaffe</li>
+    <li>Hitler schakelt over van militaire doelen naar steden (Londen) → fout: RAF kan herstellen</li>
+    <li>Resultaat: <strong>GB houdt stand</strong> — Hitler geeft het plan om te landen in Engeland op</li>
+  </ul>
+  <div class="quote">Churchill: "Never in the field of human conflict was so much owed by so many to so few."</div>
+</div>
+
+<div class="blue-box">
+  <h4>🇺🇸 Rol van de Verenigde Staten (1940–1941)</h4>
+  <p>FDR wil GB helpen, maar het Congres wil neutraal blijven. Oplossing: <strong>Lend-Lease Act</strong> — de VS "leent" wapens en materiaal aan GB. De VS is de "arsenaal van de democratie", maar nog niet officieel in oorlog.</p>
+</div>
+
+<div class="dark-box">
+  <h3>⚠️ Drie Fatale Beslissingen van 1941</h3>
+  <div style="margin-top: 14px;">
+
+    <p style="font-weight:700; color: var(--gold-soft); margin-bottom:6px;">① Mussolini: de zwakke bondgenoot</p>
+    <p style="font-size:0.86rem; color:rgba(255,255,255,0.82); margin-bottom:16px;">Mussolini wil ook successen boeken: valt Griekenland en Noord-Afrika aan → mislukt volledig. Duitsland moet bijspringen → verlies van kostbare tijd en middelen.</p>
+
+    <p style="font-weight:700; color: var(--gold-soft); margin-bottom:6px;">② Operatie Barbarossa — De Fatale Gok (zomer 1941)</p>
+    <ul class="plain" style="color:rgba(255,255,255,0.82); margin-bottom:16px;">
+      <li>Hitler valt de USSR aan — verrassingsaanval</li>
+      <li>Doel: Lebensraum, grondstoffen, uitschakeling communisten</li>
+      <li>Begin: héél succesvol — enorme gebiedswinsten</li>
+      <li>Maar: <strong>bevoorradingsproblemen</strong> + <strong>strenge Russische winter</strong> → opmars stopt voor Moskou</li>
+      <li class="warn" style="list-style:none; margin-top:6px; padding:8px 12px; border-radius:6px; background:rgba(192,57,43,0.3); font-size:0.83rem;">Hitler opent een TWEEDE FRONT en maakt de USSR als extra vijand. Het wordt een uitputtingsoorlog.</li>
+    </ul>
+
+    <p style="font-weight:700; color: var(--gold-soft); margin-bottom:6px;">③ Japan: Aanval op Pearl Harbor (december 1941)</p>
+    <ul class="plain" style="color:rgba(255,255,255,0.82);">
+      <li>Japan wil zijn rijk uitbreiden in de Stille Oceaan (ten koste van Europese kolonies)</li>
+      <li>De VS is de enige macht die dit kan tegenhouden</li>
+      <li>Keuze: verrassingsaanval op <strong>Pearl Harbor</strong> (7 december 1941)</li>
+      <li>Succesvol op korte termijn: Amerikaanse vloot zwaar getroffen, Japan verovert groot deel van Azië</li>
+      <li>Maar: Japan <strong>sleurt de machtige VS de oorlog in</strong> → FDR kan zich mengen</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🌍 Een Wereldwijde Coalitie: De Geallieerden</h3>
+  <p class="lead">Op <strong>1 januari 1942</strong> ondertekenen <strong>26 landen</strong> (o.a. USA, GB, USSR) de "<strong>Verklaring van de Verenigde Naties</strong>".</p>
+  <ul class="plain">
+    <li>Ze vechten samen een <strong>totale oorlog</strong> uit tegen de Asmogendheden (Duitsland, Italië, Japan)</li>
+    <li>Niemand aanvaardt een afzonderlijke vrede</li>
+    <li>Einde 1940 / begin 1941: Hitler heeft overwicht in Europa. Na 1941: het tij begint te keren.</li>
+  </ul>
+  <div class="gold-box" style="margin-top:12px; margin-bottom:0;">
+    <h4>⚖️ De richting van de beschaving staat op het spel</h4>
+    <p>WOII is niet alleen een territoriale strijd — het is een strijd tussen democratie &amp; vrijheid enerzijds en fascisme, nazisme en totalitarisme anderzijds.</p>
+  </div>
+</div>
+
+<!-- === OVERZICHTSTABEL === -->
+<div class="ch" style="margin-top:52px;">
+  <div class="ch-num" style="background:var(--gold); color:var(--dark);">★</div>
+  <div>
+    <div class="ch-title">Vergelijkingstabel: Totalitaire Regimes</div>
+    <div class="ch-date">Examentip — ken de verschillen</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div style="overflow-x:auto;">
+<table class="compare">
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>🔴 Communisme (USSR)</th>
+      <th>⚫ Fascisme (Italië)</th>
+      <th>☠️ Nazisme (Duitsland)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Leider</td>
+      <td>Stalin</td>
+      <td>Mussolini (Il Duce)</td>
+      <td>Hitler (Der Führer)</td>
+    </tr>
+    <tr>
+      <td>Economie</td>
+      <td>Planeconomie, nationalisatie</td>
+      <td>Staatssturing, privébezit</td>
+      <td>Staatssturing + herbewapening</td>
+    </tr>
+    <tr>
+      <td>Privébezit</td>
+      <td>Geen (alles van de staat)</td>
+      <td>Ja, maar staatssturing</td>
+      <td>Ja, maar staatssturing</td>
+    </tr>
+    <tr>
+      <td>Klasse</td>
+      <td>Klasseloze maatschappij (theorie)</td>
+      <td>Klassen bestaan, maar samenwerken</td>
+      <td>Volksgemeinschaft (ras = klasse)</td>
+    </tr>
+    <tr>
+      <td>Racisme</td>
+      <td>Nee (in theorie gelijkheid)</td>
+      <td>Beperkt (later sterkere racisme)</td>
+      <td>Centraal — antisemitisme, Arisch superioriteit</td>
+    </tr>
+    <tr>
+      <td>Religie</td>
+      <td>Atheïsme opgelegd</td>
+      <td>Staatsgodsdienst (katholiek)</td>
+      <td>Kerk onderworpen aan staat</td>
+    </tr>
+    <tr>
+      <td>Symbool</td>
+      <td>Hamer &amp; sikkel</td>
+      <td>Fasces</td>
+      <td>Hakenkruis (swastika)</td>
+    </tr>
+    <tr>
+      <td>Maatschappijbeeld</td>
+      <td>Mierenkolonie</td>
+      <td>Bijenkorf</td>
+      <td>Volksgemeinschaft</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- === SLEUTELBEGRIPPEN === -->
+<div class="ch" style="margin-top:42px;">
+  <div class="ch-num" style="background:var(--navy); color:white;">?</div>
+  <div>
+    <div class="ch-title">Sleutelbegrippen — Ken ze vanbuiten</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="grid3">
+  <div class="mini-card mc-red">
+    <h4>Blitzkrieg</h4>
+    <p>Bliksemoorlog. Snelle aanval met tanks, vliegtuigen en infanterie gecombineerd zodat de vijand geen tijd heeft om te reageren.</p>
+  </div>
+  <div class="mini-card mc-blue">
+    <h4>Appeasement</h4>
+    <p>Beleid van toegeeflijkheid aan Hitlers eisen om oorlog te vermijden. Conferentie van München (1938).</p>
+  </div>
+  <div class="mini-card mc-gold">
+    <h4>Anschluss</h4>
+    <p>De inlijving van Oostenrijk bij Duitsland in 1938 via referendum.</p>
+  </div>
+  <div class="mini-card mc-green">
+    <h4>Lebensraum</h4>
+    <p>Hitlers ideologie: Duitsland heeft "leefruimte" nodig in het Oosten, te veroveren op de Slavische volkeren.</p>
+  </div>
+  <div class="mini-card mc-navy">
+    <h4>Holodomor</h4>
+    <p>Hongersnood in Oekraïne (ca. 6 miljoen doden) als gevolg van Stalins gedwongen collectivisatie van de landbouw.</p>
+  </div>
+  <div class="mini-card mc-red">
+    <h4>Volkenbond</h4>
+    <p>Internationale organisatie gesticht door Wilson. VS deed niet mee. Werkte niet bij grote conflicten.</p>
+  </div>
+  <div class="mini-card mc-gold">
+    <h4>New Deal</h4>
+    <p>FDR's economisch herstelplan: hogere belastingen, publieke werken, uitkeringen, sterke vakbonden.</p>
+  </div>
+  <div class="mini-card mc-blue">
+    <h4>Planeconomie</h4>
+    <p>De staat beslist wat er geproduceerd wordt, hoeveel en door wie (i.t.t. vrije markt). Gebruikt in de USSR.</p>
+  </div>
+  <div class="mini-card mc-green">
+    <h4>Socialistisch realisme</h4>
+    <p>Officiële kunststijl in de USSR: kunst moet begrijpelijk, indrukwekkend en verheerlijkend voor de staat zijn.</p>
+  </div>
+  <div class="mini-card mc-navy">
+    <h4>Autarkie</h4>
+    <p>Economische zelfvoorzienendheid: een land probeert alles zelf te produceren zonder import. Doel van nazi's en fascisten.</p>
+  </div>
+  <div class="mini-card mc-red">
+    <h4>Rassenwetten (1935)</h4>
+    <p>Neurenbergse wetten: Joden worden rechtloos gemaakt in Duitsland. Verbod op gemengde huwelijken.</p>
+  </div>
+  <div class="mini-card mc-gold">
+    <h4>Keynesiaanse economie</h4>
+    <p>In crisis: overheid maakt schulden en investeert. Als het goed gaat: schulden afbouwen via belastingen.</p>
+  </div>
+</div>
+
+</main>
+</body>
+</html>

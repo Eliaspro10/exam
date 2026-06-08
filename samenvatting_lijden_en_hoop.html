@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samenvatting: Lijden & Hoop</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --mint: #b2dfd7;
+    --dark: #2d3d45;
+    --accent: #e07060;
+    --gold: #e8b84b;
+    --light: #f0faf8;
+    --white: #ffffff;
+    --card-bg: #ffffff;
+    --border: #cde9e4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.75;
+    font-size: 15px;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--dark);
+    color: white;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 280px; height: 280px;
+    background: var(--mint);
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 30%;
+    width: 180px; height: 180px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.1;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    position: relative;
+  }
+  header .subtitle {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    opacity: 0.7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--dark);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 18px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--dark);
+    color: white;
+    padding: 30px 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .toc h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 14px; }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+  }
+  .toc a {
+    color: var(--mint);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .toc a:hover { background: rgba(178,223,215,0.1); }
+  .toc a::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* SECTION HEADERS */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 52px;
+    margin-bottom: 20px;
+  }
+  .section-number {
+    background: var(--accent);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.65rem;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+  .section-divider {
+    height: 3px;
+    background: linear-gradient(to right, var(--mint), transparent);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(45,61,69,0.05);
+  }
+  .card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--mint);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card h3 .icon { font-size: 1.1rem; }
+
+  /* GRID CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .grid-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 6px rgba(45,61,69,0.04);
+  }
+  .grid-card .letter {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--mint);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .grid-card h4 {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .grid-card p {
+    font-size: 0.83rem;
+    color: #5a6e75;
+    line-height: 1.5;
+  }
+
+  /* NUMBERED LIST CARDS */
+  .numbered-list { list-style: none; }
+  .numbered-list li {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .numbered-list li:last-child { border-bottom: none; }
+  .num-badge {
+    background: var(--dark);
+    color: white;
+    border-radius: 8px;
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .num-content strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--dark);
+  }
+  .num-content p {
+    font-size: 0.87rem;
+    color: #4a6068;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--dark) 0%, #3d5560 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+  }
+  .highlight-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+    color: var(--mint);
+  }
+  .highlight-box p, .highlight-box li {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.7;
+  }
+
+  /* ACCENT BOX */
+  .accent-box {
+    background: linear-gradient(135deg, var(--accent) 0%, #c55a4a 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+  }
+  .accent-box h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+  .accent-box p { font-size: 0.88rem; opacity: 0.92; }
+
+  /* MINT BOX */
+  .mint-box {
+    background: var(--mint);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    color: var(--dark);
+  }
+  .mint-box h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 10px; }
+  .mint-box p, .mint-box li { font-size: 0.88rem; }
+
+  /* BALANCE */
+  .balance-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .balance-side {
+    border-radius: 10px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+  }
+  .balance-side.blue { background: #e8f4f8; border-color: #a8d0df; }
+  .balance-side.green { background: #e8f4ee; border-color: #a8d4bc; }
+  .balance-side h4 { font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .balance-side.blue h4 { color: #2a6080; }
+  .balance-side.green h4 { color: #2a6040; }
+  .balance-side ul { list-style: none; }
+  .balance-side ul li {
+    font-size: 0.84rem;
+    padding: 4px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+  .balance-side ul li::before { content: '•'; position: absolute; left: 0; }
+  .balance-side.blue ul li::before { color: #2a6080; }
+  .balance-side.green ul li::before { color: #2a6040; }
+
+  /* KEY-VALUE PAIRS */
+  .kv-list { list-style: none; }
+  .kv-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 0.88rem;
+  }
+  .kv-list li:last-child { border-bottom: none; }
+  .kv-list .kv-key {
+    font-weight: 700;
+    min-width: 90px;
+    color: var(--dark);
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .kv-list .kv-val { color: #4a6068; }
+
+  /* PERSON CARD */
+  .person-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    border-left: 5px solid var(--accent);
+  }
+  .person-card .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .person-card .years {
+    font-size: 0.8rem;
+    color: #7a8e95;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  /* SLEUTEL CARDS */
+  .sleutel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .sleutel-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .sleutel-num {
+    background: var(--mint);
+    color: var(--dark);
+    font-weight: 800;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .sleutel-content strong { display: block; font-weight: 600; font-size: 0.9rem; }
+  .sleutel-content p { font-size: 0.82rem; color: #5a6e75; margin-top: 4px; }
+
+  /* ROUWTAAK TIMELINE */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 9px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--mint);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 24px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot {
+    position: absolute;
+    left: -24px;
+    top: 4px;
+    width: 20px; height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-item strong {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--dark);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .timeline-item p {
+    font-size: 0.84rem;
+    color: #4a6068;
+  }
+
+  /* INLINE TAG */
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .badge-red { background: #fde8e5; color: #c0392b; }
+  .badge-green { background: #e5f5ec; color: #196f3d; }
+  .badge-blue { background: #e5edf5; color: #1a4a6f; }
+  .badge-mint { background: var(--mint); color: var(--dark); }
+
+  ul.plain { list-style: disc; padding-left: 20px; }
+  ul.plain li { padding: 3px 0; font-size: 0.88rem; color: #4a6068; }
+
+  p.lead { font-size: 0.95rem; color: #4a6068; margin-bottom: 16px; line-height: 1.8; }
+
+  .quote-box {
+    border-left: 4px solid var(--gold);
+    background: #fffdf0;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #5a4e20;
+    margin: 14px 0;
+  }
+
+  @media (max-width: 640px) {
+    header { padding: 40px 20px 36px; }
+    header h1 { font-size: 2rem; }
+    main { padding: 24px 14px 60px; }
+    .card-grid, .sleutel-grid, .balance-container { grid-template-columns: 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: white; }
+    header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card, .grid-card, .person-card { break-inside: avoid; }
+    .section-label { break-before: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">Examen samenvatting</div>
+  <h1>Lijden &amp; Hoop</h1>
+  <p class="subtitle">Godsdienst — Volledig overzicht</p>
+</header>
+
+<div class="toc">
+  <a href="samenvatting_geschiedenis_5AD.html">geschiedenis</a>
+  <h2>Inhoud</h2>
+  <div class="toc-grid">
+    <a href="#s1">Waarom dit thema?</a>
+    <a href="#s2">Zes vormen van lijden</a>
+    <a href="#s3">Oorzaak van het lijden</a>
+    <a href="#s4">Vragen die lijden oproept</a>
+    <a href="#s5">Drempel of struikelblok?</a>
+    <a href="#s6">Draagkracht &amp; draaglast</a>
+    <a href="#s7">De ziekenzalving</a>
+    <a href="#s8">Hoe rauw is rouw?</a>
+    <a href="#s9">Vier rouwtaken (Worden)</a>
+    <a href="#s10">Dimensies van rouwarbeid</a>
+    <a href="#s11">Vier sleutels (Keirse)</a>
+    <a href="#s12">Levinas</a>
+    <a href="#s13">Levensbeschouwingen &amp; lijden</a>
+    <a href="#s14">Het Bijbelboek Job</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- 1. WAAROM DIT THEMA -->
+  <div class="section-label" id="s1">
+    <div class="section-number">1</div>
+    <h2 class="section-title">Waarom dit thema? Leven kan pijn doen</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <p class="lead">In onze <strong>welvaartsmaatschappij</strong> ligt de nadruk op materiële zaken, geluk en uiterlijk schoon. Daardoor is er steeds minder aandacht voor het <em>diep-menselijke</em>.</p>
+    <h3><span class="icon">🚫</span> Taboe op:</h3>
+    <ul class="plain">
+      <li>Geloof</li>
+      <li>Lijden en dood</li>
+      <li>Seks</li>
+    </ul>
+    <div class="quote-box">Het is belangrijk om dit voor jezelf en anderen bespreekbaar te maken.</div>
+  </div>
+
+  <!-- 2. ZES VORMEN -->
+  <div class="section-label" id="s2">
+    <div class="section-number">2</div>
+    <h2 class="section-title">Lijden in vele gedaanten — Zes vormen</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <p class="lead">Lijden is nooit enkel lichamelijk of enkel geestelijk. Er bestaat een wisselwerking tussen <strong>fysisch</strong> lijden enerzijds en <strong>geestelijk, psychisch, mentaal en emotioneel</strong> lijden anderzijds.</p>
+
+  <div class="card-grid">
+    <div class="grid-card">
+      <div class="letter">A</div>
+      <h4>Lichamelijke vorm</h4>
+      <p>Pijn, ziekte, letsel, fysieke beperkingen.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">B</div>
+      <h4>Emotionele vorm</h4>
+      <p>Verdriet, angst, depressie, verlies van gevoel van eigenwaarde.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">C</div>
+      <h4>Sociale vorm</h4>
+      <p>Eenzaamheid, uitsluiting, conflicten, isolement.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">D</div>
+      <h4>Materiële vorm</h4>
+      <p>Armoede, verlies van werk, financiële problemen.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">E</div>
+      <h4>Morele vorm</h4>
+      <p>Schuldgevoel, schaamte, morele conflicten.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">F</div>
+      <h4>Spirituele vorm</h4>
+      <p>Zingevingsvragen, geloofscrisis, verlies van hoop.</p>
+    </div>
+  </div>
+
+  <!-- 3. OORZAAK -->
+  <div class="section-label" id="s3">
+    <div class="section-number">3</div>
+    <h2 class="section-title">Oorzaak van het lijden</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <h3><span class="icon">🔍</span> Wat doet mij of een ander lijden?</h3>
+    <p class="lead">De oorzaak van lijden kan op meerdere manieren worden bekeken:</p>
+    <ul class="plain">
+      <li><strong>Zomaar</strong> — zonder aanwijsbare oorzaak (toeval, noodlot)</li>
+      <li><strong>Door mensen</strong> — veroorzaakt door menselijk handelen, nader te verdelen in:
+        <ul class="plain" style="margin-top:6px; margin-left:14px;">
+          <li><strong>Door jezelf</strong> — eigen keuzes of gedrag</li>
+          <li><strong>Door anderen</strong> — iemand anders is oorzaak van jouw lijden</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="balance-container">
+    <div class="balance-side blue">
+      <h4>Individueel / Persoonlijk</h4>
+      <ul>
+        <li>Treft één persoon</li>
+        <li>Unieke, subjectieve ervaring</li>
+      </ul>
+    </div>
+    <div class="balance-side green">
+      <h4>Collectief / Gemeenschappelijk</h4>
+      <ul>
+        <li>Treft groepen of samenlevingen</li>
+        <li>Oorlog, ramp, epidemie</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mint-box">
+    <h3>⚖️ Zijn er gradaties in het lijden?</h3>
+    <p>Ja — niet elk lijden is gelijk. De intensiteit, de duur en de context bepalen hoe ingrijpend het lijden is voor een persoon.</p>
+  </div>
+
+  <!-- 4. VRAGEN -->
+  <div class="section-label" id="s4">
+    <div class="section-number">4</div>
+    <h2 class="section-title">Welke vragen roept het lijden op?</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <h3><span class="icon">❓</span> Wie draagt verantwoordelijkheid?</h3>
+    <ul class="kv-list">
+      <li>
+        <span class="kv-key">Schuldvraag</span>
+        <span class="kv-val">Ligt de schuld bij onszelf of bij anderen?</span>
+      </li>
+      <li>
+        <span class="kv-key">Samenloop</span>
+        <span class="kv-val">Soms is het lijden het gevolg van een samenloop van omstandigheden — niemand is rechtstreeks schuldig.</span>
+      </li>
+      <li>
+        <span class="kv-key">Gedeeld</span>
+        <span class="kv-val">De verantwoordelijkheid kan gedeeld zijn tussen meerdere partijen.</span>
+      </li>
+      <li>
+        <span class="kv-key">Belang</span>
+        <span class="kv-val">Het verhelderen van de schuldvraag zorgt voor een beter copingsproces in het rouwen.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 5. DREMPEL OF STRUIKELBLOK -->
+  <div class="section-label" id="s5">
+    <div class="section-number">5</div>
+    <h2 class="section-title">Lijden: drempel of struikelblok?</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <p class="lead">Hoe mensen omgaan met lijden, bepaalt of het een <em>doorgang</em> (drempel) of een <em>blokkade</em> (struikelblok) wordt in hun leven. Er zijn <strong>drie manieren</strong>:</p>
+
+  <ol class="numbered-list">
+    <li>
+      <div class="num-badge">1</div>
+      <div class="num-content">
+        <strong>Het lijden steeds opnieuw oprakelen <span class="badge badge-red">versterkt</span></strong>
+        <p>Zich wentelen in de pijn van het verlies. Het verdriet blijft duren en wordt versterkt. Men komt het lijden niet te boven.</p>
+      </div>
+    </li>
+    <li>
+      <div class="num-badge">2</div>
+      <div class="num-content">
+        <strong>Doen alsof er niets is — de pijn verdringen <span class="badge badge-blue">verdringen</span></strong>
+        <p>Mensen storten zich op werk of andere zaken en geven het verdriet geen kans. Dit kan later tot een depressie leiden.</p>
+      </div>
+    </li>
+    <li>
+      <div class="num-badge">3</div>
+      <div class="num-content">
+        <strong>Tijd nemen om te rouwen <span class="badge badge-green">verwerken</span></strong>
+        <p>Met vallen en opstaan telkens opnieuw een poging wagen om het verdriet te verwerken en door te gaan met het leven. Dit is de gezonde weg.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="mint-box" style="margin-top:18px;">
+    <h3>🌳 Verhaal van de drie bomen</h3>
+    <p>Elke boom staat symbool voor een andere houding t.o.v. het lijden. Eerste boom = verdringen, tweede boom = versterken, derde boom = verwerken en groeien.</p>
+    <p style="margin-top:10px;"><strong>Rouw:</strong> Mensen denken vaak dat rouw kleiner wordt met de tijd (bal slinkt in pot). In werkelijkheid groeit de pot — de rouw blijft even groot, maar <em>wij groeien er omheen</em>.</p>
+  </div>
+
+  <!-- 6. DRAAGKRACHT -->
+  <div class="section-label" id="s6">
+    <div class="section-number">6</div>
+    <h2 class="section-title">Draagkracht of draaglast?</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="balance-container">
+    <div class="balance-side blue">
+      <h4>💪 Draagkracht</h4>
+      <ul>
+        <li>Fysieke conditie</li>
+        <li>Mentale conditie</li>
+        <li>Sociale steun</li>
+      </ul>
+    </div>
+    <div class="balance-side green">
+      <h4>⬇️ Draaglast</h4>
+      <ul>
+        <li>Hoge werkdruk</li>
+        <li>Ziekte</li>
+        <li>Conflicten</li>
+        <li>Kopzorgen</li>
+        <li>Financiële problemen</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚖️</span> Balanceren tussen draagkracht en draaglast</h3>
+    <ul class="plain">
+      <li>Het ene lijden is het andere niet</li>
+      <li>Er zijn grenzen aan wat een mens kan (ver)dragen</li>
+      <li>Lijden kan zo ingrijpend zijn dat het je hele leven overhoop gooit</li>
+      <li><strong>Als draaglast &gt; draagkracht:</strong> kan je geen balans of evenwicht meer vinden. Het lijden wordt zo groot dat je eronder bezwijkt.</li>
+      <li>Gedeelde verantwoordelijkheid speelt een rol</li>
+      <li><strong>Anderen kunnen ons draagvlak vergroten</strong> indien ze ons steunen en ons 'dragen' in het lijden</li>
+    </ul>
+  </div>
+
+  <!-- 7. ZIEKENZALVING -->
+  <div class="section-label" id="s7">
+    <div class="section-number">7</div>
+    <h2 class="section-title">De ziekenzalving</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <h3><span class="icon">🕯️</span> Wat is de ziekenzalving?</h3>
+    <ul class="kv-list">
+      <li>
+        <span class="kv-key">Wat</span>
+        <span class="kv-val">Een sacrament binnen de katholieke kerk</span>
+      </li>
+      <li>
+        <span class="kv-key">Doel</span>
+        <span class="kv-val">Nabijheid van God uitdrukken voor ernstig zieke en/of stervende mensen</span>
+      </li>
+      <li>
+        <span class="kv-key">Door wie</span>
+        <span class="kv-val">Uitgevoerd door een priester — kan ook door een pastor, leek of diaken</span>
+      </li>
+      <li>
+        <span class="kv-key">Ritueel</span>
+        <span class="kv-val">Handen opleggen + zalven met olie op het voorhoofd (en handen)</span>
+      </li>
+      <li>
+        <span class="kv-key">Gebed</span>
+        <span class="kv-val">Christus zal de zieke bijstaan met liefdevolle kracht</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <h3>Opdracht 10 — Examentip</h3>
+    <p>Hoe kan het sacrament van de ziekenzalving de <strong>draagkracht</strong> van een zieke en de familie versterken?</p>
+    <p style="margin-top:10px; font-size:0.85rem; opacity:0.8;">→ Door het ritueel van zalven en gebed ervaart de zieke Gods nabijheid. De familie wordt bijgestaan en voelt zich gesteund. Het vergroot de sociale en spirituele draagkracht in een moeilijke moment.</p>
+  </div>
+
+  <!-- 8. HOE RAUW IS ROUW -->
+  <div class="section-label" id="s8">
+    <div class="section-number">8</div>
+    <h2 class="section-title">Hoe rauw is rouw? — Gedeelde smart is halve smart</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="person-card">
+    <div class="name">Guillaume Van der Stighelen</div>
+    <div class="years">Belgisch communicatiedeskundige</div>
+    <ul class="plain">
+      <li>Verloor zijn zoon bij een verkeersongeval</li>
+      <li>Schreef een brief met advies aan rouwende mensen</li>
+      <li>Centrale boodschap: mensen die rouwen mogen <strong>niet alleen zijn</strong></li>
+      <li>Gedeeld verdriet is dragelijker verdriet</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">🪴</span> Rouwmodel — Takenmodel dr. J. William Worden</h3>
+    <p class="lead">De term <strong>'rouwarbeid'</strong> maakt duidelijk dat iemand die een dierbare verliest, zelf werk moet verzetten om te herstellen. De rouwende moet de belangrijkste arbeid zelf doen.</p>
+  </div>
+
+  <!-- 9. VIER ROUWTAKEN -->
+  <div class="section-label" id="s9">
+    <div class="section-number">9</div>
+    <h2 class="section-title">Vier rouwtaken — Dr. J. William Worden</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <strong>Rouwtaak 1 — De realiteit van het verlies accepteren</strong>
+        <p>Er is altijd eerst een gevoel van <em>ontkenning</em>. De eerste taak is: tot het besef komen dat de overledene werkelijk dood is en niet zal terugkomen. Zowel rationele als emotionele aanvaarding zijn nodig. Dit vraagt tijd. Een laatste groet brengen kan helpen om de realiteit te aanvaarden.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <strong>Rouwtaak 2 — Het toelaten van de pijn van het verlies</strong>
+        <p>De pijn herkennen en ervaren. Er is geen andere weg dan <em>door</em> de pijn. Mensen die de pijn onderdrukken (via alcohol, medicijnen…) lopen later het risico op een depressie. De rouwende heeft een zorgzame, meelevende omgeving nodig. Vermijding is NIET de weg.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <strong>Rouwtaak 3 — Aanpassen aan een situatie zonder de overledene</strong>
+        <p>Aanpassen aan een nieuw leven. Dit is voor iedereen anders, afhankelijk van de relatie met de overledene. Praktisch: vervanging zoeken van taken en rollen. Soms is er ook <em>statusverlies</em> (bijv. van vrouw naar weduwe). Blijven luisteren naar de rouwende is essentieel.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <strong>Rouwtaak 4 — De overledene emotioneel een plaats geven en de draad van het leven oppikken</strong>
+        <p>Emotioneel loskomen van de overledene en energie investeren in andere relaties en activiteiten. Nabestaanden ervaren dit soms als <em>ontrouw of verraad</em>. Wie deze taak niet afwerkt, kan niet meer van anderen durven houden.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="accent-box">
+    <h3>⚠️ Belangrijk: wanneer is rouwen voltooid?</h3>
+    <p>Als de vier taken zijn afgewerkt. Meetbaar wanneer iemand terug kan genieten van alledaagse dingen, de problemen van het leven aankan en minder in beslag genomen wordt door het verdriet. Het eindresultaat is <strong>integratie</strong> van het verlies — niet vergeten.</p>
+  </div>
+
+  <!-- 10. DIMENSIES -->
+  <div class="section-label" id="s10">
+    <div class="section-number">10</div>
+    <h2 class="section-title">Dimensies van rouwarbeid — Claire Vanden Abbeele</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <p class="lead">Rouwpijn kan zich uiten op <strong>zes verschillende vlakken</strong>:</p>
+
+  <div class="card-grid">
+    <div class="grid-card">
+      <div class="letter">1</div>
+      <h4>Emotioneel vlak</h4>
+      <p><span class="badge badge-red">ROUWGEVOELENS</span><br>Verdriet, woede, schuld, angst.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">2</div>
+      <h4>Lichamelijk vlak</h4>
+      <p><span class="badge badge-red">ROUWPIJN</span><br>Fysieke pijn, slaapproblemen, vermoeidheid.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">3</div>
+      <h4>Sociaal vlak</h4>
+      <p><span class="badge badge-blue">ROUWRELATIES</span><br>Verander­ingen in relaties met anderen.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">4</div>
+      <h4>Spiritueel/existentieel vlak</h4>
+      <p><span class="badge badge-mint">ROUWVRAGEN</span><br>Zingevingsvragen: waarom? wat nu?</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">5</div>
+      <h4>Cognitief vlak</h4>
+      <p><span class="badge badge-blue">ROUWGEDACHTEN</span><br>Piekeren, herinneringen, concentratieproblemen.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter">6</div>
+      <h4>Gedragsvlak</h4>
+      <p><span class="badge badge-green">ROUWGEDRAG</span><br>Huilbuien, terugtrekking, rituelen.</p>
+    </div>
+  </div>
+
+  <!-- 11. VIER SLEUTELS -->
+  <div class="section-label" id="s11">
+    <div class="section-number">11</div>
+    <h2 class="section-title">Vier sleutels — Manu Keirse</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <p class="lead">Hoe kun je een ander nabij zijn in het lijden? Manu Keirse formuleert <strong>vier sleutels</strong> voor de omgang met mensen in rouw:</p>
+
+  <div class="sleutel-grid">
+    <div class="sleutel-card">
+      <div class="sleutel-num">1</div>
+      <div class="sleutel-content">
+        <strong>Luisteren</strong>
+        <p>Oprecht aanwezig zijn, ruimte geven aan het verhaal van de ander. Niet oordelen, niet oplossen.</p>
+      </div>
+    </div>
+    <div class="sleutel-card">
+      <div class="sleutel-num">2</div>
+      <div class="sleutel-content">
+        <strong>Informatie</strong>
+        <p>Uitleggen wat rouw is, wat normaal is. Mensen zijn soms bang van hun eigen rouwreacties.</p>
+      </div>
+    </div>
+    <div class="sleutel-card">
+      <div class="sleutel-num">3</div>
+      <div class="sleutel-content">
+        <strong>Warmte &amp; genegenheid</strong>
+        <p>Lichamelijk en emotioneel nabij zijn. Een knuffel, een hand vasthouden, aanwezig blijven.</p>
+      </div>
+    </div>
+    <div class="sleutel-card">
+      <div class="sleutel-num">4</div>
+      <div class="sleutel-content">
+        <strong>Herinneren</strong>
+        <p>De overledene blijven noemen, herinneringen delen. De dode 'levend' houden in het gesprek.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. LEVINAS -->
+  <div class="section-label" id="s12">
+    <div class="section-number">12</div>
+    <h2 class="section-title">Emmanuel Levinas — Lijden &amp; verbondenheid</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="person-card">
+    <div class="name">Emmanuel Levinas</div>
+    <div class="years">1906 – 1995 · Joods-Frans filosoof</div>
+    <ul class="kv-list">
+      <li>
+        <span class="kv-key">Kernidee</span>
+        <span class="kv-val">Lijden zorgt voor verbondenheid tussen mensen.</span>
+      </li>
+      <li>
+        <span class="kv-key">Gelaat</span>
+        <span class="kv-val">Het <strong>gelaat van de Ander</strong> (het gezicht van de lijdende) doet een ethisch appèl op mij.</span>
+      </li>
+      <li>
+        <span class="kv-key">Appèl</span>
+        <span class="kv-val">De ander roept mij op tot verantwoordelijkheid. Dat appèl is onmiskenbaar.</span>
+      </li>
+      <li>
+        <span class="kv-key">Keuze</span>
+        <span class="kv-val">Ik heb een keuze: (a) de verantwoordelijkheid erkennen en helpen, of (b) de verantwoordelijkheid om te helpen negeren.</span>
+      </li>
+      <li>
+        <span class="kv-key">Geweten</span>
+        <span class="kv-val">Het geweten speelt een rol: het pijnigt mij als ik de oproep negeeer.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 13. LEVENSBESCHOUWINGEN -->
+  <div class="section-label" id="s13">
+    <div class="section-number">13</div>
+    <h2 class="section-title">Hoe kijken levensbeschouwingen naar lijden?</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <h3><span class="icon">🌍</span> De vraag naar het lijden als uitdaging voor religie</h3>
+    <p class="lead">Lijden overkomt mensen en roept de fundamentele <em>waarom-vraag</em> op. Als er een goede God is, waarom staat die het lijden dan toe? Staat het kwaad (het lijden) niet haaks op het goede? Dit is de grote uitdaging voor elke religie.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="grid-card">
+      <div class="letter" style="color: var(--accent)">✝</div>
+      <h4>Christendom</h4>
+      <p>Lijden heeft betekenis via het lijden en de opstanding van Jezus Christus. God lijdt mee met de mens (solidaire God). Hoop op verlossing en leven na de dood.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter" style="color: var(--gold)">☪</div>
+      <h4>Islam</h4>
+      <p>Lijden is een beproeving van God. Geduld (sabr) en overgave aan Allah zijn de antwoorden. Lijden kan een loutering zijn.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter" style="color: var(--accent)">✡</div>
+      <h4>Jodendom</h4>
+      <p>Het lijden is een thema dat diep verweven is met de geschiedenis van het joodse volk. God kan bevraagd worden (zie Job). Klacht aan God is een legitieme geloofsuiting.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter" style="color: var(--mint)">☸</div>
+      <h4>Boeddhisme</h4>
+      <p>Lijden (dukkha) is onlosmakelijk verbonden met het aardse bestaan. Oorzaak: gehechtheid en verlangen. Bevrijding via de achtvoudige weg en het loslaten van verlangens.</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter" style="color: #9b59b6">ॐ</div>
+      <h4>Hindoeïsme</h4>
+      <p>Lijden hangt samen met karma en de kringloop van wedergeboorte (samsara). Goed leven en deugdzaam handelen leiden uiteindelijk tot bevrijding (moksha).</p>
+    </div>
+    <div class="grid-card">
+      <div class="letter" style="color: #5d6d7e">H</div>
+      <h4>Vrijzinnig humanisme</h4>
+      <p>Het leven heeft geen vooraf gegeven betekenis. Mensen moeten zelf betekenis geven aan hun leven. Lijden is een feit van het bestaan zonder bovennatuurlijke duiding.</p>
+    </div>
+  </div>
+
+  <!-- 14. JOB -->
+  <div class="section-label" id="s14">
+    <div class="section-number">14</div>
+    <h2 class="section-title">Het Bijbelboek Job — Geloven ondanks alles</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <h3><span class="icon">📖</span> Situering</h3>
+    <ul class="kv-list">
+      <li><span class="kv-key">Boek</span><span class="kv-val">Onderdeel van het Oude Testament (Wijsheidsliteratuur)</span></li>
+      <li><span class="kv-key">Centrale vraag</span><span class="kv-val">Waarom treft het kwaad goede mensen?</span></li>
+      <li><span class="kv-key">Job als symbool</span><span class="kv-val">Job staat symbool voor elk rechtschapen, onschuldig mens die geconfronteerd wordt met onterecht lijden — "Waarom ik?"</span></li>
+    </ul>
+  </div>
+
+  <ol class="numbered-list">
+    <li>
+      <div class="num-badge">1</div>
+      <div class="num-content">
+        <strong>Job is een modelmens</strong>
+        <p>Job leeft rechtvaardig, gelovig en deugdzaam — het overkwam hem toch.</p>
+      </div>
+    </li>
+    <li>
+      <div class="num-badge">2</div>
+      <div class="num-content">
+        <strong>Job wordt 'lijdend voorwerp'</strong>
+        <p>Hij verliest alles: zijn kinderen, bezittingen en gezondheid.</p>
+      </div>
+    </li>
+    <li>
+      <div class="num-badge">3</div>
+      <div class="num-content">
+        <strong>Job komt in een geloofscrisis terecht</strong>
+        <p>Hij klaagt, hij stelt vragen, maar hij twijfelt niet aan het bestaan van God.</p>
+      </div>
+    </li>
+    <li>
+      <div class="num-badge">4</div>
+      <div class="num-content">
+        <strong>Ondanks alles twijfelt hij niet aan God</strong>
+        <p>Job blijft in dialoog met God. Vanuit het lijden groeit een diepere <em>relatie</em> met God.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="card" style="margin-top:18px;">
+    <h3><span class="icon">🧩</span> Vier visies in het boek Job op de oorzaak van het lijden</h3>
+    <ul class="kv-list">
+      <li>
+        <span class="kv-key">Visie 1</span>
+        <span class="kv-val">Lijden als <strong>straf voor zonde</strong> — de vrienden van Job: "je hebt gezondigd, daarom lijd je." Job wijst dit af.</span>
+      </li>
+      <li>
+        <span class="kv-key">Visie 2</span>
+        <span class="kv-val">Lijden als <strong>beproeving</strong> — God test Job om te zien of zijn geloof echt is.</span>
+      </li>
+      <li>
+        <span class="kv-key">Visie 3</span>
+        <span class="kv-val">Lijden als <strong>opvoeding/loutering</strong> — God gebruikt lijden om mensen te vormen en rijper te maken.</span>
+      </li>
+      <li>
+        <span class="kv-key">Visie 4</span>
+        <span class="kv-val">Lijden als <strong>mysterie</strong> — Gods wegen zijn ondoorgrondelijk. Het lijden heeft geen rationele verklaring; men moet leven met de vraag open. Job aanvaardt dit uiteindelijk.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <h3>📌 Conclusie van het boek Job</h3>
+    <p>Het boek Job geeft geen pasklaar antwoord op het lijden, maar nodigt ons uit om <em>dieper na te denken</em> over de onrechtvaardigheid van het lijden en de verhouding tussen mens en God. De schuldvraag en Gods aandeel in het lijden blijven open vragen. Wat Job ons leert: <strong>vanuit het lijden kan een diepere relatie met God groeien.</strong></p>
+  </div>
+
+  <!-- EXAMENTIPS -->
+  <div class="section-label" style="margin-top: 60px;">
+    <div class="section-number" style="background: var(--gold); color: var(--dark);">★</div>
+    <h2 class="section-title">Examentips — Begrippen to know</h2>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="card-grid">
+    <div class="grid-card">
+      <h4>Rouwarbeid</h4>
+      <p>De actieve inspanning die een rouwende zelf moet leveren om te herstellen na verlies. Niet passief, maar actief "werken".</p>
+    </div>
+    <div class="grid-card">
+      <h4>Draagkracht vs draaglast</h4>
+      <p>Draagkracht = wat iemand kan verdragen. Draaglast = de som van alle stressoren. Als draaglast > draagkracht → crisis.</p>
+    </div>
+    <div class="grid-card">
+      <h4>Ethisch appèl (Levinas)</h4>
+      <p>Het appèl dat het gelaat van de lijdende ander op mij doet. Het roept mij op tot verantwoordelijkheid om te helpen.</p>
+    </div>
+    <div class="grid-card">
+      <h4>Theodicee</h4>
+      <p>De poging om het bestaan van een goede God te verzoenen met het bestaan van lijden en kwaad in de wereld.</p>
+    </div>
+    <div class="grid-card">
+      <h4>Ziekenzalving</h4>
+      <p>Katholiek sacrament: zalven met olie + handen opleggen + gebed. Drukt Gods nabijheid uit voor zieken en stervenden.</p>
+    </div>
+    <div class="grid-card">
+      <h4>Integratie (Worden)</h4>
+      <p>Het eindresultaat van een voltooid rouwproces. Niet vergeten, maar het verlies integreren in het eigen levensverhaal.</p>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

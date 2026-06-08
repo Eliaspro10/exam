@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samenvatting: Ethiek Deel II — Goed & Fout</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --mint: #b2dfd7;
+    --dark: #2d3d45;
+    --accent: #e07060;
+    --gold: #e8b84b;
+    --purple: #7d5fa0;
+    --blue: #3a7fc1;
+    --light: #f0faf8;
+    --card: #ffffff;
+    --border: #cde9e4;
+    --muted: #4a6068;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.75;
+    font-size: 15px;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--dark);
+    color: white;
+    padding: 58px 40px 46px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 300px; height: 300px;
+    background: var(--mint);
+    border-radius: 50%;
+    opacity: 0.13;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -70px; left: 25%;
+    width: 200px; height: 200px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.10;
+  }
+  .h-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.9rem;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    position: relative;
+  }
+  header .sub {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    opacity: 0.6;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  .h-badges {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .hb {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.77rem;
+    font-weight: 500;
+  }
+
+  /* TOC */
+  .toc {
+    background: #243447;
+    color: white;
+    padding: 28px 40px;
+  }
+  .toc-l { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.4; margin-bottom: 14px; font-weight: 600; }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 6px;
+  }
+  .toc a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 500;
+    padding: 7px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.15s;
+  }
+  .toc a:hover { background: rgba(255,255,255,0.09); color: white; }
+  .tn {
+    background: var(--accent);
+    color: white;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 44px 24px 80px;
+  }
+
+  /* CHAPTER */
+  .ch {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 58px;
+    margin-bottom: 6px;
+  }
+  .ch-num {
+    background: var(--accent);
+    color: white;
+    min-width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .ch-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.72rem;
+    line-height: 1.2;
+  }
+  .ch-sub { font-size: 0.83rem; color: var(--muted); font-weight: 500; margin-top: 4px; }
+  .divider {
+    height: 3px;
+    background: linear-gradient(to right, var(--mint), transparent);
+    border-radius: 2px;
+    margin-bottom: 22px;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(45,61,69,0.05);
+  }
+  .card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light);
+    display: flex; align-items: center; gap: 9px;
+  }
+
+  /* GRIDS */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 16px; }
+
+  .mc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .mc h4 { font-weight: 700; font-size: 0.88rem; margin-bottom: 7px; }
+  .mc p { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+  .mc ul { list-style: disc; padding-left: 16px; }
+  .mc ul li { font-size: 0.83rem; color: var(--muted); padding: 2px 0; }
+  .mc-a { border-left: 4px solid var(--accent); }
+  .mc-m { border-left: 4px solid var(--mint); }
+  .mc-g { border-left: 4px solid var(--gold); }
+  .mc-p { border-left: 4px solid var(--purple); }
+  .mc-b { border-left: 4px solid var(--blue); }
+  .mc-d { border-left: 4px solid var(--dark); }
+
+  /* PERSON */
+  .person {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    border-left: 5px solid var(--accent);
+  }
+  .p-name { font-family: 'DM Serif Display', serif; font-size: 1.15rem; }
+  .p-role { font-size: 0.8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; margin-top: 2px; }
+
+  /* KV LIST */
+  .kv { list-style: none; }
+  .kv li { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.87rem; }
+  .kv li:last-child { border-bottom: none; }
+  .kv .k { font-weight: 700; min-width: 110px; flex-shrink: 0; color: var(--dark); font-size: 0.83rem; }
+  .kv .v { color: var(--muted); }
+
+  /* NUMBERED */
+  .nlist { list-style: none; }
+  .nlist > li { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+  .nlist > li:last-child { border-bottom: none; }
+  .nb { background: var(--dark); color: white; min-width: 30px; height: 30px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; flex-shrink: 0; margin-top: 2px; }
+  .nc strong { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+  .nc p { font-size: 0.84rem; color: var(--muted); }
+
+  /* DARK BOX */
+  .dark-box {
+    background: var(--dark);
+    color: white;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+  }
+  .dark-box h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--mint); margin-bottom: 12px; }
+  .dark-box p, .dark-box li { font-size: 0.88rem; opacity: 0.88; line-height: 1.7; }
+
+  /* ACCENT BOX */
+  .acc-box {
+    background: linear-gradient(135deg, var(--accent), #c04a38);
+    color: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .acc-box h3 { font-weight: 700; font-size: 0.95rem; margin-bottom: 9px; }
+  .acc-box p { font-size: 0.88rem; opacity: 0.92; }
+
+  /* MINT BOX */
+  .mint-box {
+    background: var(--mint);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    color: var(--dark);
+  }
+  .mint-box h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 10px; }
+  .mint-box p, .mint-box li { font-size: 0.88rem; }
+
+  /* GOLD BOX */
+  .gold-box {
+    background: #fffbeb;
+    border: 1px solid #f0c040;
+    border-left: 5px solid var(--gold);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .gold-box h4 { font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; color: #7d6000; }
+  .gold-box p { font-size: 0.86rem; color: #5a4800; }
+
+  /* PURPLE BOX */
+  .purple-box {
+    background: #f5f0fa;
+    border: 1px solid #c9aee8;
+    border-left: 5px solid var(--purple);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .purple-box h4 { font-weight: 700; font-size: 0.9rem; color: var(--purple); margin-bottom: 6px; }
+  .purple-box p { font-size: 0.86rem; color: #4a3060; }
+
+  /* QUOTE */
+  .quote {
+    border-left: 4px solid var(--gold);
+    background: #fffdf0;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #5a4820;
+    margin: 14px 0;
+  }
+  .quote cite { display: block; font-size: 0.8rem; margin-top: 6px; font-style: normal; opacity: 0.7; }
+
+  /* TABLE */
+  .tbl { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 0.85rem; }
+  .tbl th { background: var(--dark); color: white; padding: 10px 14px; text-align: left; font-weight: 700; font-size: 0.8rem; }
+  .tbl td { padding: 9px 14px; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+  .tbl tr:nth-child(even) td { background: var(--light); }
+  .tbl td:first-child { font-weight: 600; color: var(--dark); }
+
+  /* BADGE */
+  .badge { display: inline-block; padding: 2px 9px; border-radius: 10px; font-size: 0.73rem; font-weight: 700; }
+  .b-a { background: #fde8e5; color: #922b21; }
+  .b-g { background: #d5f5e3; color: #1a5e32; }
+  .b-m { background: #e0f5f2; color: #1a5e50; }
+  .b-p { background: #f0e8fa; color: #5a3080; }
+  .b-gold { background: #fef9e7; color: #7d6608; }
+
+  /* PLAIN LIST */
+  ul.plain { list-style: disc; padding-left: 20px; }
+  ul.plain li { padding: 3px 0; font-size: 0.86rem; color: var(--muted); }
+  ul.plain li strong { color: red; }
+  p.lead { font-size: 0.94rem; color: var(--muted); margin-bottom: 14px; line-height: 1.8; }
+
+  /* ZALIGSPREKING TABLE */
+  .zs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    font-size: 0.83rem;
+  }
+  .zs-header {
+    background: var(--dark);
+    color: white;
+    padding: 10px 18px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+  .zs-row {
+    display: contents;
+  }
+  .zs-row:nth-child(even) .zs-l,
+  .zs-row:nth-child(even) .zs-r { background: #f8fffe; }
+  .zs-l, .zs-r {
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .zs-l { border-right: 1px solid var(--border); font-weight: 500; color: var(--dark); }
+  .zs-l strong { color: var(--accent); font-size: 0.72rem; display: block; margin-bottom: 2px; }
+
+  @media (max-width:660px) {
+    header { padding: 38px 18px 30px; }
+    header h1 { font-size: 2rem; }
+    main { padding: 24px 14px 60px; }
+    .g2,.g3,.g4 { grid-template-columns: 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .toc { padding: 20px 18px; }
+    .zs-grid { grid-template-columns: 1fr; }
+    .zs-header:last-of-type { display: none; }
+  }
+  @media print {
+    body { background: white; }
+    header, .toc, .dark-box, .acc-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card, .mc, .person { break-inside: avoid; }
+    .ch { break-before: auto; margin-top: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  
+  <div class="h-tag">Examensamenvatting</div>
+  <h1>Ethiek Deel II<br>Goed &amp; Fout</h1>
+  <p class="sub">Godsdienst — Volledig overzicht leerstof</p>
+  <div class="h-badges">
+    <span class="hb">Geweld &amp; Holocaust</span>
+    <span class="hb">Hannah Arendt</span>
+    <span class="hb">Elie Wiesel</span>
+    <span class="hb">Levinas</span>
+    <span class="hb">Vergeving &amp; Genade</span>
+    <span class="hb">Zonde &amp; Deugd</span>
+    <span class="hb">Utopie</span>
+    <span class="hb">Bergrede</span>
+  </div>
+</header>
+
+<div class="toc">
+  <a href="samenvatting_lijden_en_hoop.html">Lijden</a>
+  <div class="toc-l">Inhoud</div>
+  <div class="toc-grid">
+    <a href="#s1"><span class="tn">1</span> Soorten geweld</a>
+    <a href="#s2"><span class="tn">2</span> Factoren die leiden tot geweld</a>
+    <a href="#s3"><span class="tn">3</span> Holocaust: verklaring &amp; terminologie</a>
+    <a href="#s4"><span class="tn">4</span> Reflecties over het kwaad — Arendt</a>
+    <a href="#s5"><span class="tn">5</span> Waar was God in Auschwitz? — Wiesel</a>
+    <a href="#s6"><span class="tn">6</span> De mens als betrokkene — Levinas</a>
+    <a href="#s7"><span class="tn">7</span> Vergeving — Genade — Barmhartigheid</a>
+    <a href="#s8"><span class="tn">8</span> Zonde &amp; Deugd</a>
+    <a href="#s9"><span class="tn">9</span> Utopie</a>
+    <a href="#s10"><span class="tn">10</span> Wegwijzers: 10 Geboden (Mozes)</a>
+    <a href="#s11"><span class="tn">11</span> Wegwijzers: Bergrede (Jezus)</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 1. SOORTEN GEWELD -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s1">
+  <div class="ch-num">1</div>
+  <div>
+    <div class="ch-title">Soorten Geweld</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="quote">
+  'Voor geweld moet je leren haten. Voor geweldloosheid moet je leren liefhebben.'
+  <cite>— Phil Bosmans</cite>
+</div>
+<div class="quote">
+  'De leugen is de moeder van het geweld.'
+  <cite>— Mahatma Gandhi</cite>
+</div>
+<div class="quote">
+  'Sluit mensen uit en ze radicaliseren.'
+  <cite>— Robi Damelin</cite>
+</div>
+
+<div class="g2">
+  <div class="mc mc-a">
+    <h4>1. Psychologisch geweld</h4>
+    <p>Mentale schade toebrengen: intimidatie, manipulatie, gaslighting, bedreigingen.</p>
+  </div>
+  <div class="mc mc-a">
+    <h4>2. Fysiek geweld</h4>
+    <p>Lichamelijk letsel: slaan, schoppen, mishandeling.</p>
+  </div>
+  <div class="mc mc-m">
+    <h4>3. Verbaal geweld</h4>
+    <p>Schelden, uitschelden, vernederen, treiteren.</p>
+  </div>
+  <div class="mc mc-m">
+    <h4>4. Seksueel geweld</h4>
+    <p>Aanranding, verkrachting, ongewenste toenadering.</p>
+  </div>
+  <div class="mc mc-g">
+    <h4>5. Geweld tegen dieren of voorwerpen</h4>
+    <p>Dierenmishandeling, vernieling van eigendom.</p>
+  </div>
+  <div class="mc mc-g">
+    <h4>6. Economisch geweld</h4>
+    <p>Financieel controleren, stelen, iemand afhankelijk houden.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 2. FACTOREN GEWELD -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s2">
+  <div class="ch-num">2</div>
+  <div>
+    <div class="ch-title">Factoren die kunnen leiden tot geweld</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<ol class="nlist">
+  <li>
+    <div class="nb">1</div>
+    <div class="nc">
+      <strong>Verkeerde denkbeelden</strong>
+      <p>Iemand kan geloven dat geweld de <em>enige manier</em> is om respect te krijgen of problemen op te lossen. Foutieve opvattingen over de werkelijkheid.</p>
+    </div>
+  </li>
+  <li>
+    <div class="nb">2</div>
+    <div class="nc">
+      <strong>Negatieve vroegere ervaringen</strong>
+      <p>Ervaringen zoals mishandeling of pesten kunnen leiden tot gewelddadig gedrag als overlevingsmechanisme of copingstrategie met trauma.</p>
+    </div>
+  </li>
+  <li>
+    <div class="nb">3</div>
+    <div class="nc">
+      <strong>Middelengebruik (alcohol, drugs, medicatie)</strong>
+      <p>Beïnvloedt het oordeel en de zelfcontrole, kan agressie verhogen.</p>
+    </div>
+  </li>
+  <li>
+    <div class="nb">4</div>
+    <div class="nc">
+      <strong>Slechte leefomstandigheden</strong>
+      <p>Armoede of criminaliteit in de omgeving → geweld als overlevingsmechanisme of uit wanhoop om basisbehoeften te vervullen.</p>
+    </div>
+  </li>
+  <li>
+    <div class="nb">5</div>
+    <div class="nc">
+      <strong>Fysieke oorzaken</strong>
+      <p>Hersenletsel of aandoeningen kunnen impulsief en agressief gedrag veroorzaken.</p>
+    </div>
+  </li>
+  <li>
+    <div class="nb">6</div>
+    <div class="nc">
+      <strong>Gebrek aan communicatie</strong>
+      <p>Misverstanden en onvermogen om gevoelens gezond te uiten → escalatie naar geweld.</p>
+    </div>
+  </li>
+  <li>
+    <div class="nb">7</div>
+    <div class="nc">
+      <strong>Niet ernstig genomen worden</strong>
+      <p>Als iemand voelt dat zijn zorgen genegeerd worden, kan hij geweld gebruiken om aandacht te trekken of zijn punt te maken.</p>
+    </div>
+  </li>
+</ol>
+
+<div class="gold-box">
+  <h4>🧠 Zijn er slechte mensen of worden mensen slecht?</h4>
+  <p>Psychiater <strong>Cesare Lombroso (1835–1909)</strong> onderzocht biologische oorzaken van crimineel gedrag. Hij dacht dat je criminelen kon herkennen aan uiterlijke kenmerken. Dit is een <strong>achterhaalde theorie</strong> — slecht gedrag is niet genetisch bepaald of inherent aan een bepaald type mens.</p>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 3. HOLOCAUST -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s3">
+  <div class="ch-num">3</div>
+  <div>
+    <div class="ch-title">Hoe kunnen we de Holocaust verklaren?</div>
+    <div class="ch-sub">Terminologie &amp; historische achtergrond</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="dark-box">
+  <h3>☠️ Wat is de Holocaust?</h3>
+  <ul class="plain" style="color:rgba(255,255,255,0.87);">
+    <li>De Holocaust of <strong>'Shoah'</strong> = de systematische genocide op <strong>6 miljoen Joden</strong> door nazi-Duitsland tijdens WOII (1939–1945)</li>
+    <li><strong>78%</strong> van de Europese joodse gemeenschap overleefde de oorlog niet</li>
+    <li>Slachtoffers: ook Roma, gehandicapten, homoseksuelen, politieke tegenstanders</li>
+    <li>Doel: de <strong>"Endlösung"</strong> — de totale uitroeiing van de Joden</li>
+    <li>Methoden: massamoord, gaskamers, schietpartijen, medische experimenten, systematische ontmenselijking</li>
+    <li>Gevolg: het <strong>Neurenbergproces</strong> en de belofte van "<em>Nooit meer</em>"</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>📖 Sleutelbegrippen</h3>
+  <ul class="kv">
+    <li><span class="k">Antisemitisme</span><span class="v">Jodenhaat — haat of discriminatie jegens Joden op basis van (vermeend) ras of religie.</span></li>
+    <li><span class="k">Arisch ras</span><span class="v">Hitlers begrip van een "superieur ras" — typisch blond haar en blauwe ogen. De Ariër = de <em>Übermensch</em>. Wetenschappelijk volstrekt onhoudbaar.</span></li>
+    <li><span class="k">Razzia</span><span class="v">Georganiseerde massa-arrestaties van Joden door de nazi's en hun handlangers.</span></li>
+    <li><span class="k">Doorgangskamp</span><span class="v">Tijdelijk kamp van waaruit gevangenen naar vernietigingskampen werden gedeporteerd (vb. Dossinkazerne in Mechelen).</span></li>
+    <li><span class="k">Concentratiekamp</span><span class="v">Kamp voor dwangarbeid, uithongering en mishandeling (vb. Auschwitz-I).</span></li>
+    <li><span class="k">Vernietigingskamp</span><span class="v">Kamp met als enig doel de massamoord (vb. Auschwitz-Birkenau, Sobibór, Treblinka).</span></li>
+    <li><span class="k">Auschwitz</span><span class="v">Het grootste en dodelijkste nazicentrum. 1940–1942: concentratiekamp. Vanaf 1942: ook uitroeiingskamp. Meer dan <strong>1 miljoen</strong> mensen vermoord. Bevrijd op 27 januari 1945 door Russische troepen.</span></li>
+    <li><span class="k">Endlösung</span><span class="v">"Eindoplossing van het jodenvraagstuk" — de definitieve beslissing om alle Joden te vernietigen.</span></li>
+    <li><span class="k">Negationisme</span><span class="v">Het ontkennen of extreem minimaliseren van de Holocaust. "Wir haben es nicht gewußt" ("Wij wisten het niet") — veelgebruikte uitvlucht van nazi's en sympathisanten.</span></li>
+    <li><span class="k">Zondebok</span><span class="v">Hitler maakte Joden verantwoordelijk voor alle problemen: het verlies in WOI, de economische crisis, enz.</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>📅 Traag en geleidelijk proces — 7 stappen naar de Endlösung</h3>
+  <ol class="nlist">
+    <li><div class="nb">1</div><div class="nc"><strong>Ideologische voorbereiding (1920–1933)</strong><p>Antisemitische propaganda via Mein Kampf, toespraken en nazi-ideologie. Joden afgeschilderd als "vijanden" en zondebokken.</p></div></li>
+    <li><div class="nb">2</div><div class="nc"><strong>Uitsluiting via wetgeving (1933–1935)</strong><p>Joden stap voor stap uitgesloten van openbaar leven: banenverlies, uitsluiting uit ambten, scholen, cultuur.</p></div></li>
+    <li><div class="nb">3</div><div class="nc"><strong>Juridische ontmenselijking — Neurenberger Wetten (1935)</strong><p>Joden verliezen burgerrechten en worden wettelijk gedefinieerd als "minderwaardig".</p></div></li>
+    <li><div class="nb">4</div><div class="nc"><strong>Sociale en economische isolatie (1935–1938)</strong><p>Boycots van Joodse winkels, gedwongen verkoop van bedrijven ("arisering"), sociale uitsluiting.</p></div></li>
+    <li><div class="nb">5</div><div class="nc"><strong>Openlijk geweld — Kristallnacht (1938)</strong><p>Georganiseerde geweldsacties, verwoesting van synagogen, arrestaties van duizenden Joden.</p></div></li>
+    <li><div class="nb">6</div><div class="nc"><strong>Gedwongen segregatie (1939–1941)</strong><p>Verplichte gele ster, getto's, zware beperking van bewegingsvrijheid.</p></div></li>
+    <li><div class="nb">7</div><div class="nc"><strong>Deportatie en massamoord (1941–1945)</strong><p>Systematische deportaties naar vernietigingskampen. Uitvoering van de "Endlösung".</p></div></li>
+  </ol>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 4. REFLECTIES OVER HET KWAAD -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s4">
+  <div class="ch-num">4</div>
+  <div>
+    <div class="ch-title">Reflecties over het Kwaad</div>
+    <div class="ch-sub">Hannah Arendt — vier verklaringsmodellen</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<p class="lead">Hoe verklaren we dat gewone mensen zoiets als de Holocaust konden uitvoeren? Er zijn vier verklaringsmodellen, elk met een andere kijk op de dader.</p>
+
+<div class="g2">
+  <div class="mc mc-a">
+    <h4>🔴 1. Diabolisering</h4>
+    <ul>
+      <li>De dader als <strong>bewust kwaadaardige sadist</strong></li>
+      <li>Het kwaad is gevolg van intenties van <em>boosaardige personen</em></li>
+      <li>Duidelijke scheidingslijn: goede mensen vs. slechte mensen</li>
+      <li>Plaatst onszelf veilig aan de goede zijde</li>
+      <li><strong>Gevaar:</strong> leidt tot een spiraal van geweld — het kwaad vernietigen met gelijkaardig geweld (cf. anti-nazi propaganda = nazi-propaganda)</li>
+    </ul>
+  </div>
+  <div class="mc mc-b">
+    <h4>🔵 2. Banalisering — Hannah Arendt</h4>
+    <ul>
+      <li>Arendt, <em>Eichmann in Jerusalem</em> (1963)</li>
+      <li>De dader als <strong>tandwieltje in een systeem</strong>, die plichtsbewust doet wat hem opgedragen is</li>
+      <li>Het kwaad treedt op wanneer mensen <em>te weinig nadenken</em> over de gevolgen</li>
+      <li><strong>Depersonalisatie</strong>: technieken om zich niet te laten raken door de ander</li>
+      <li>Het kwaad als een <strong>permanente mogelijkheid</strong> voor iedereen</li>
+      <li>Geen persoonlijke verantwoordelijkheid → <em>de-ethischering</em></li>
+    </ul>
+  </div>
+  <div class="mc mc-p">
+    <h4>🟣 3. Ethisering</h4>
+    <ul>
+      <li>De dader als een <strong>idealist die het goede wil</strong></li>
+      <li>Alternatieve ethiek: een ander waardensysteem</li>
+      <li>Aansluiting bij heersende morele idealen (vb. "voor het volk")</li>
+      <li><strong>Gevaar:</strong> totaal relativisme — 'goed' en 'kwaad' verliezen hun betekenis</li>
+    </ul>
+  </div>
+  <div class="mc mc-g">
+    <h4>🟡 4. Fragmentatie en zelfbedrog</h4>
+    <ul>
+      <li><strong>Fragmentatie:</strong> barrières opwerpen zodat het lijden niet je hele persoonlijkheid doordringt. Noodzakelijk in complexe wereld, maar gevaarlijk als extreem</li>
+      <li>Gaat gepaard met <strong>zelfbedrog:</strong> voor jezelf rechtvaardigen dat je je afsluit van het lijden</li>
+      <li>Wie fragmenteert <em>kent</em> het onderscheid tussen goed en kwaad — maar kiest er bewust voor het te negeren</li>
+      <li>→ Het kwaad zit in elk van ons; de Holocaust is een <strong>permanente mogelijkheid</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="person">
+  <div class="p-name">Adolf Eichmann</div>
+  <div class="p-role">Nazi-bureaucraat — symbool van de banalisering van het kwaad</div>
+  <p style="font-size:0.87rem; color:var(--muted);">Eichmann organiseerde de deportaties van miljoenen Joden. Hannah Arendt beschreef hem niet als een monster maar als een gewone, doorsnee mens — tien vingers, gemiddelde intelligentie. Hij deed simpelweg zijn plicht in een systeem zonder moreel na te denken. Dit noemde Arendt de <strong>"banaliteit van het kwaad"</strong>.</p>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 5. WAAR WAS GOD IN AUSCHWITZ -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s5">
+  <div class="ch-num">5</div>
+  <div>
+    <div class="ch-title">Waar was God in Auschwitz?</div>
+    <div class="ch-sub">Elie Wiesel — geloof en lijden</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="person">
+  <div class="p-name">Elie Wiesel</div>
+  <div class="p-role">Holocaustoverlevende, schrijver &amp; Nobelprijswinnaar</div>
+  <p style="font-size:0.87rem; color:var(--muted); margin-bottom:10px;">Overleefde Auschwitz. Zijn boek <em>Night</em> beschrijft zijn ervaringen. Na de oorlog kampte hij met een diepe geloofscrisis.</p>
+</div>
+
+<div class="quote">
+  "Nooit zal ik die nacht vergeten, de eerste kampnacht, die van mijn leven één lange, zeven maal vergrendelde nacht heeft gemaakt. Nooit zal ik de vlammen vergeten die voor eeuwig mijn Geloof verteerden. Nooit zal ik die nachtelijke stilte vergeten die mij voor eeuwig van het verlangen om te leven heeft beroofd."
+  <cite>— Elie Wiesel, Night</cite>
+</div>
+
+<div class="card">
+  <h3>🔥 Wat verbrandt Wiesel in Auschwitz?</h3>
+  <p class="lead">Zijn geloof in <strong>God én de mens</strong> — een geloof dat heel zijn wereld en bestaan doordrongen had. In het "Rijk van de Nacht" (Auschwitz) hoort God niet thuis. De realiteit van God is voor Wiesel niet te rijmen met de realiteit van Auschwitz.</p>
+  <ul class="plain">
+    <li>Wiesel verwerpt <em>niet</em> het bestaan van God</li>
+    <li>Zijn vraag is: <strong>waarom heeft God in Auschwitz gezwegen?</strong></li>
+    <li>Doorheen het verhaal blijft een constante <em>opstand en protest tegen God</em></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>💡 Theologische antwoorden: Waar was God?</h3>
+  <ul class="kv">
+    <li>
+      <span class="k">Atheïstisch antwoord</span>
+      <span class="v">Gods bestaan wordt verworpen op grond van het lijden in de wereld. "Als God goed zou zijn, zou Hij dit nooit toelaten."</span>
+    </li>
+    <li>
+      <span class="k">Privatio boni</span>
+      <span class="v">Het kwaad als <em>afwezigheid van het Goede</em>. God is niet te zoeken als tweede boosaardige kracht, noch is God "dood". Het kwaad is de afwezigheid van God.</span>
+    </li>
+    <li>
+      <span class="k">God als afwezige</span>
+      <span class="v">God was <em>afwezig in het kwaad</em> van Auschwitz — tenminste in het leven van de daders. Maar: men slaagde er nooit helemaal in om de stem van het Goede volledig het zwijgen op te leggen.</span>
+    </li>
+    <li>
+      <span class="k">God als lotgenoot</span>
+      <span class="v">God toont zich in het verlangen van de slachtoffers naar het goede en in hun appel om menswaardig behandeld te worden. <strong>God lijdt mee met de mensen</strong> — God als mee-lijdende lotgenoot.</span>
+    </li>
+    <li>
+      <span class="k">Zelfbedrog van nazi's</span>
+      <span class="v">De daders manipuleerden hun innerlijke ethische dialoog om kwaad te begaan zonder schuldgevoel. Dit zelfbedrog is paradoxaal een bewijs voor de <em>onverwoestbare aanwezigheid van het Goede</em>, zelfs midden in het kwaad.</span>
+    </li>
+  </ul>
+</div>
+
+<div class="gold-box">
+  <h4>📌 Sleutelcitaat Didier Pollefeyt</h4>
+  <p>"In het licht van Auschwitz is het onmogelijk om God te rechtvaardigen." — God wil het lijden niet en staat het ook niet toe. God lijdt mee met de mensen.</p>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 6. LEVINAS -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s6">
+  <div class="ch-num">6</div>
+  <div>
+    <div class="ch-title">De mens als betrokkene op de a(A)nder</div>
+    <div class="ch-sub">Emmanuel Levinas — ethiek vanuit de ander</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="person">
+  <div class="p-name">Emmanuel Levinas</div>
+  <div class="p-role">1906–1995 · Joods-Frans filosoof</div>
+</div>
+
+<div class="g2">
+  <div class="card" style="margin-bottom:0;">
+    <h3>👁️ De kernideeën</h3>
+    <ul class="kv">
+      <li><span class="k">Uitgangspunt</span><span class="v">Niet het "ik" (individu) staat centraal, maar <strong>de Ander</strong>!</span></li>
+      <li><span class="k">Gelaat</span><span class="v">Het <strong>"gelaat van de Ander"</strong> = de verschijning van de ander in zijn lijden en kwetsbaarheid. Het doet een ethisch appèl op mij.</span></li>
+      <li><span class="k">Appèl</span><span class="v">De ander <em>roept mij op</em> tot verantwoordelijkheid — niet uit keuze of sympathie, maar omdat de ander mij "appelleert".</span></li>
+      <li><span class="k">Heteronomie</span><span class="v">De wet die van buiten (de ander) komt, niet van binnenuit. Tegenover autonomie (individuele vrijheid).</span></li>
+      <li><span class="k">Verantwoordelijkheid</span><span class="v">Onze verantwoordelijkheid voor de ander gaat aan onze vrijheid vooraf! Het is geen keuze — het is een <em>gebod</em>.</span></li>
+    </ul>
+  </div>
+  <div class="card" style="margin-bottom:0;">
+    <h3>🔑 De vrijheid van het appel</h3>
+    <ul class="plain">
+      <li>Het appel vertrekt <em>niet</em> vanuit mijn initiatief, maar vanuit de ander</li>
+      <li>De vrijheid zit <strong>niet in het appèl</strong> (we worden opgeroepen), maar in het <strong>ANTWOORD</strong></li>
+      <li>We worden voor de plicht tot naastenliefde gesteld, maar niet gedwongen: we moeten "ja" zeggen, maar kunnen ook "neen" zeggen</li>
+      <li>Slechts door onze verantwoordelijkheid op te nemen, doen we het goede</li>
+    </ul>
+    <div class="purple-box" style="margin-top:14px; margin-bottom:0;">
+      <h4>Rol van het geweten</h4>
+      <p>Het geweten is de innerlijke stem die ons wijst op onze verantwoordelijkheid voor de ander. Cf. de barmhartige Samaritaan.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:14px;">
+  <h3>❓ Hoe kon het kwaad toch gebeuren? — Levinas en de Holocaust</h3>
+  <p class="lead">Als het ethisch appèl zo krachtig is, hoe konden de beulen van Auschwitz het dan negeren?</p>
+  <ul class="kv">
+    <li><span class="k">Fragmentatie</span><span class="v">Innerlijke barrières tussen het lijden dat men zag en de persoonlijke sfeer. Men laat het niet tot zich doordringen.</span></li>
+    <li><span class="k">Depersonalisatie</span><span class="v">Technieken om het gelaat van de ander uit te schakelen — Joden werden ontmenselijkt (ratten, ongedierte) zodat het ethisch appèl minder luid kon klinken.</span></li>
+  </ul>
+  <div class="mint-box" style="margin-top:10px;">
+    <h3>De barmhartige Samaritaan (Lc 10, 25–37)</h3>
+    <p>De Samaritaan — lid van een gehate groep — ziet de gewonde man en wordt <em>geraakt</em>. Hij antwoordt op het ethisch appèl. De priester en de leviet lopen in een boog om hem heen. Jezus: "Ga dan en doe gij evenzo." → <strong>Naastenliefde overstijgt grenzen van afkomst, religie of sympathie.</strong></p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 7. VERGEVING, GENADE, BARMHARTIGHEID -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s7">
+  <div class="ch-num">7</div>
+  <div>
+    <div class="ch-title">Vergeving — Genade — Barmhartigheid</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="g2">
+  <div class="card" style="margin-bottom:0;">
+    <h3>🕊️ Wat is vergeving?</h3>
+    <ul class="plain">
+      <li>Vergeving is <strong>geen morele plicht</strong></li>
+      <li>Komt uit de eigen vrije wil van het slachtoffer</li>
+      <li>Het slachtoffer kan <em>niet</em> gedwongen worden tot vergeven</li>
+      <li>De dader kan vergeving niet afdwingen of verdienen</li>
+      <li>Vergeving heeft een <strong>helend en bevrijdend effect</strong> voor het slachtoffer — het doorbreekt het vastzitten aan het verleden</li>
+    </ul>
+  </div>
+  <div class="card" style="margin-bottom:0;">
+    <h3>🔗 Vergeving vs. Verzoening</h3>
+    <ul class="plain">
+      <li><strong>Vergeving</strong> = innerlijk proces van het slachtoffer dat vanuit zijn hart vergeving schenkt aan de dader</li>
+      <li><strong>Verzoening</strong> = integraal herstel van de <em>relatie</em> tussen dader en slachtoffer</li>
+      <li>Na vergeving komt niet automatisch verzoening!</li>
+      <li>Verzoening is moeilijker dan vergeving en soms gewoon niet mogelijk</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card" style="margin-top:14px;">
+  <h3>⚖️ Voorwaarden voor vergeving — eisen aan dader en slachtoffer</h3>
+  <div class="g2" style="margin-top:8px;">
+    <div class="mc mc-a">
+      <h4>Eisen aan de DADER (5 voorwaarden)</h4>
+      <ol style="padding-left:16px; font-size:0.84rem; color:var(--muted);">
+        <li style="padding:3px 0;">Oprecht berouw tonen (schuldbesef &amp; spijt)</li>
+        <li style="padding:3px 0;">Bereidheid om niet in hetzelfde te vervallen</li>
+        <li style="padding:3px 0;">Aangebrachte schade herstellen (indien mogelijk)</li>
+        <li style="padding:3px 0;">In herinnering houden wat er is gebeurd (herinneringsarbeid)</li>
+        <li style="padding:3px 0;">Bereidheid om een constructieve straf te ondergaan</li>
+      </ol>
+    </div>
+    <div class="mc mc-m">
+      <h4>Wat het SLACHTOFFER kan doen</h4>
+      <ul>
+        <li>Gevraagd om <strong>haat en wraak los te laten</strong></li>
+        <li>Stelt geen voorwaarden op aan de dader (anders: wraakgevoelens)</li>
+        <li>Kan ook vergeven als de dader <em>niet</em> bereid is dat te ontvangen → bevrijdt het slachtoffer zelf van rancune en maakt toekomst open</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="dark-box">
+  <h3>✨ Vergeving als gave — Roger Burggraeve</h3>
+  <p>"Vergeving is eerst een gave, vooraleer ze een opgave is." Vergeving ligt niet volledig in onze eigen macht — ze wordt fundamenteel geschonken. Mensen vinden in vergeving een religieuze dieptedimensie: <em>"doordat God ons eerst vergeeft, worden wij in staat gesteld en opgeroepen om zelf ook te vergeven."</em></p>
+  <p style="margin-top:10px; font-size:0.84rem; opacity:0.75;">Belofte: ons bestaan wordt gedragen door een liefde die groter is dan onszelf. — Cf. Matteüs 18,22: "Tot 7 maal 70 maal" vergeven. Parabel van de verloren zoon (Lc 15).</p>
+</div>
+
+<div class="card">
+  <h3>💙 Barmhartigheid</h3>
+  <div class="g2" style="margin-top:8px;">
+    <div>
+      <p style="font-size:0.87rem; color:var(--muted);">Barmhartigheid = je hart openen voor mensen die het moeilijk hebben. Volgens Paus Franciscus is barmhartigheid <em>"de identiteitskaart van onze God"</em>.</p>
+      <div class="quote" style="margin-top:12px;">"Barmhartigheid is de goddelijke wil om te omarmen, waarmee God ons welkom heet door zichzelf te geven en door zich naar ons toe te buigen om ons te vergeven."<cite>— Paus Franciscus</cite></div>
+    </div>
+    <div class="mc mc-m">
+      <h4>De 7 werken van barmhartigheid</h4>
+      <ol style="padding-left:16px; font-size:0.83rem; color:var(--muted);">
+        <li style="padding:3px 0;">De hongerigen spijzen</li>
+        <li style="padding:3px 0;">De dorstigen laven</li>
+        <li style="padding:3px 0;">De naakten kleden</li>
+        <li style="padding:3px 0;">De zieken verzorgen</li>
+        <li style="padding:3px 0;">De vreemdelingen herbergen</li>
+        <li style="padding:3px 0;">De gevangenen bezoeken (cf. Amnesty International)</li>
+        <li style="padding:3px 0;">De doden begraven</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🌟 Genade — Thomas van Aquino: 3 betekenissen</h3>
+  <ul class="kv">
+    <li><span class="k">Etymologie</span><span class="v">Grieks: <em>charis</em> = geschenk. Latijn: <em>gratia</em> = gratis. Genade is <strong>onverdiend, zomaar gegeven</strong> door God.</span></li>
+    <li><span class="k">1. Liefde</span><span class="v">Genade als liefde — Gods betrokkenheid op de mens.</span></li>
+    <li><span class="k">2. Gunst</span><span class="v">Genade als gunst — Gods liefde is een geschenk, niet verdiend.</span></li>
+    <li><span class="k">3. Dank</span><span class="v">Genade als dank — als je een geschenk ontvangt, ben je dankbaar.</span></li>
+    <li><span class="k">Grace vs. Mercy</span><span class="v"><em>Mercy</em> = je krijgt iets NIET wat je wel hebt verdiend (straf). <em>Grace</em> = je krijgt iets wel wat je NIET hebt verdiend (vergeving, bescherming, bevrijding).</span></li>
+  </ul>
+  <div class="mint-box" style="margin-top:12px;">
+    <h3>Ethische consequentie</h3>
+    <p>Genade kunnen we niet afdwingen of afkopen. Het is een gave die we mogen ontvangen. Gods liefde is gul en onvoorwaardelijk geschonken. Dit inspireert onze naastenliefde: <em>"De Ander die mij eerst liefheeft, wekt in mij het verlangen om zelf lief te hebben."</em></p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 8. ZONDE & DEUGD -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s8">
+  <div class="ch-num">8</div>
+  <div>
+    <div class="ch-title">Zonde &amp; Deugd</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="g2">
+  <div class="mc mc-a">
+    <h4>⚫ Zonde — definitie</h4>
+    <ul>
+      <li>= een slechte handeling of daad</li>
+      <li>= iets 'onvergeeflijks' vs. een 'jammerlijk' voorval</li>
+      <li>= <strong>moedwillig</strong> vs. onopzettelijk</li>
+      <li>Een breuk met God en met je medemens</li>
+    </ul>
+  </div>
+  <div class="mc mc-m">
+    <h4>✅ Deugd — definitie</h4>
+    <ul>
+      <li>= een goede (ethische) handeling, houding of eigenschap</li>
+      <li>= kan <strong>aangeleerd</strong> worden (nature &gt;&lt; nurture)</li>
+      <li>= deugdelijk zijn (t.o.v. anderen) vs. deugd doen (t.o.v. jezelf)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🍎 De erfzonde — Adam, Eva en de appel</h3>
+  <ul class="plain">
+    <li>Ideale beginwereld: de <strong>Tuin van Eden</strong> — geen zonde, geen schaamte</li>
+    <li>De mens weet het onderscheid tussen goed en kwaad, maar wordt verleid en begaat misstappen</li>
+    <li>Dit slaat een <strong>breuk in het vertrouwen met God</strong> → de erfzonde</li>
+    <li>Erfzonde = symbool voor de fundamentele menselijke neiging tot het kwade</li>
+    <li>Het doopsel = de erfzonde vernietigen (symbolisch reinigen)</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🏛️ Houdingen tegenover de zonde</h3>
+  <ul class="kv">
+    <li><span class="k">Individuele zonde</span><span class="v">Persoonlijke schuld — individu is verantwoordelijk. Niet enkel een particuliere handeling, maar ook een <em>houding</em> (vb. racisme, seksisme, onverschilligheid).</span></li>
+    <li><span class="k">Structurele zonde</span><span class="v">Sociale / collectieve zonde — voortkomend uit politiek, instituties of overheid. Systemisch kwaad dat in de structuren van de samenleving zit.</span></li>
+  </ul>
+</div>
+
+<div class="g2">
+  <div class="card" style="margin-bottom:0;">
+    <h3>☠️ De 7 hoofdzonden</h3>
+    <ul class="plain">
+      <li><strong>Superbia</strong> — Hoogmoed (trots, ijdelheid)</li>
+      <li><strong>Avaritia</strong> — Hebzucht (gierigheid)</li>
+      <li><strong>Luxuria</strong> — Lust (onkuisheid, wellust)</li>
+      <li><strong>Invidia</strong> — Jaloezie (nijd, afgunst)</li>
+      <li><strong>Gula</strong> — Gulzigheid (vraatzucht)</li>
+      <li><strong>Ira</strong> — Woede (toorn, wraak)</li>
+      <li><strong>Acedia</strong> — Luiheid (gemakzucht, traagheid)</li>
+    </ul>
+  </div>
+  <div class="card" style="margin-bottom:0;">
+    <h3>✨ De 7 deugden</h3>
+    <p style="font-size:0.8rem; color:var(--muted); margin-bottom:10px;">4 kardinale + 3 theologische deugden</p>
+    <ul class="plain">
+      <li><strong>Prudentia</strong> — Wijsheid en voorzichtigheid</li>
+      <li><strong>Iustitia</strong> — Rechtvaardigheid</li>
+      <li><strong>Temperantia</strong> — Matigheid en zelfbeheersing</li>
+      <li><strong>Fortitudo</strong> — Moed en sterkte</li>
+      <li><strong>Fides</strong> — Geloof</li>
+      <li><strong>Spes</strong> — Hoop</li>
+      <li><strong>Caritas</strong> — Naastenliefde</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 9. UTOPIE -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s9">
+  <div class="ch-num">9</div>
+  <div>
+    <div class="ch-title">Utopie</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="g2">
+  <div class="mc mc-g">
+    <h4>📖 Definitie</h4>
+    <p>Een <strong>ideale wereld</strong> waarin alles perfect is: geen armoede, geen oorlog, mensen leven in harmonie. Een <em>droomwereld</em> die in principe nooit bereikt kan worden. Een onmogelijke werkelijkheid — een ideaalbeeld om na te streven.</p>
+  </div>
+  <div class="mc mc-p">
+    <h4>🏛️ Etymologie</h4>
+    <ul>
+      <li>Grieks: <strong>οὐ (ou)</strong> = niet + <strong>τόπος (topos)</strong> = plaats → "niet-plaats"/"nergens"</li>
+      <li>Maar klinkt ook als <strong>εὖ (eu)</strong> = goed → "goede plaats"</li>
+      <li>Dubbelzinnig: een "goede plek" die "nergens" bestaat</li>
+    </ul>
+  </div>
+</div>
+
+<div class="person">
+  <div class="p-name">Thomas More</div>
+  <div class="p-role">1478–1535 · Humanist, schrijver, kanselierheilige</div>
+  <p style="font-size:0.87rem; color:var(--muted); margin-bottom:10px;">Schreef in 1516 het boek <em>Utopia</em>: een denkbeeldig eiland met een perfecte samenleving.</p>
+  <div class="g2" style="margin-top:8px;">
+    <div class="mc mc-m">
+      <h4>Kenmerken van Utopia</h4>
+      <ul>
+        <li>Gelijkheid: iedereen werkt &amp; draagt bij</li>
+        <li>Geen privébezit — alles wordt gedeeld</li>
+        <li>Eenvoudig leven: 6 uur werk per dag</li>
+        <li>Religieuze verdraagzaamheid</li>
+        <li>Weinig wetten nodig (want iedereen is goed opgevoed)</li>
+      </ul>
+    </div>
+    <div class="mc mc-a">
+      <h4>Wat was More's bedoeling?</h4>
+      <p>Geen blauwdruk, maar <strong>maatschappijkritiek</strong>: critique op de corruptie, hebzucht en machtsmisbruik in zijn eigen tijd. Was Utopia een droom, een satire, of een waarschuwing?</p>
+    </div>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="mc mc-g">
+    <h4>🌈 Utopie als kracht</h4>
+    <p>Utopie als motor voor verandering: het is een richtinggevend ideaal. Al bereiken we het nooit, het motiveert ons om een betere wereld na te streven.</p>
+    <div class="quote" style="margin-top:8px; font-size:0.82rem;">"Het is geen afgerond Utopia waar we naar moeten verlangen, maar een wereld waarin de verbeeldingskracht en de hoop levend en actief zijn." — Bertrand Russell</div>
+  </div>
+  <div class="mc mc-a">
+    <h4>🌑 Dystopie</h4>
+    <ul>
+      <li>Tegengestelde van utopie</li>
+      <li>Dys-topos = een slechte plaats</li>
+      <li>Afschuwelijk toekomstbeeld als <strong>waarschuwing</strong> voor hedendaagse gevaren</li>
+      <li>Populair in boeken en films (science-fiction)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 10. 10 GEBODEN -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s10">
+  <div class="ch-num">10</div>
+  <div>
+    <div class="ch-title">Wegwijzers: Mozes &amp; de 10 Geboden</div>
+    <div class="ch-sub">Exodus 20, 1–17</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="dark-box">
+  <h3>📜 De 10 geboden — Exodus 20</h3>
+  <p style="font-size:0.85rem; opacity:0.75; margin-bottom:12px;">"Ik ben de Heer uw God die u heeft weggeleid uit Egypte, het slavenhuis."</p>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+    <div>
+      <ol style="list-style:none;">
+        <li style="padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">1.</span><span style="opacity:0.87;">Geen andere goden naast Mij</span></li>
+        <li style="padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">2.</span><span style="opacity:0.87;">Geen godsbeelden maken</span></li>
+        <li style="padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">3.</span><span style="opacity:0.87;">Gods naam niet lichtvaardig gebruiken</span></li>
+        <li style="padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">4.</span><span style="opacity:0.87;">Denk aan de sabbat — heilige rustdag</span></li>
+        <li style="padding:5px 0; font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">5.</span><span style="opacity:0.87;">Eer uw vader en moeder</span></li>
+      </ol>
+    </div>
+    <div>
+      <ol start="6" style="list-style:none;">
+        <li style="padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">6.</span><span style="opacity:0.87;">Niet doden</span></li>
+        <li style="padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">7.</span><span style="opacity:0.87;">Geen echtbreuk plegen</span></li>
+        <li style="padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">8.</span><span style="opacity:0.87;">Niet stelen</span></li>
+        <li style="padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.1); font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">9.</span><span style="opacity:0.87;">Niet vals getuigen</span></li>
+        <li style="padding:5px 0; font-size:0.85rem; display:flex; gap:10px;"><span style="color:var(--mint); font-weight:700; min-width:18px;">10.</span><span style="opacity:0.87;">Niet begeren wat andermans is</span></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🔄 De 10 geboden in moderne taal</h3>
+  <div class="g2" style="margin-top:8px;">
+    <div>
+      <p style="font-size:0.83rem; color:var(--muted); font-weight:600; margin-bottom:8px;">= Heb God lief (geboden 1–4)</p>
+      <ul class="plain">
+        <li>Niet geloven dat er andere goden zijn</li>
+        <li>Geen beelden maken van God</li>
+        <li>Gods naam niet misbruiken</li>
+        <li>De rustdag onderhouden</li>
+        <li>Eer uw vader en moeder</li>
+      </ul>
+    </div>
+    <div>
+      <p style="font-size:0.83rem; color:var(--muted); font-weight:600; margin-bottom:8px;">= Heb je medemens lief (geboden 5–10)</p>
+      <ul class="plain">
+        <li>Niet doden = respect voor elk leven</li>
+        <li>Geen echtbreuk = liefde nastreven</li>
+        <li>Niet stelen = vrijgevig zijn</li>
+        <li>Niet vals getuigen = eerlijk zijn</li>
+        <li>Niet begeren = jezelf zijn &amp; anderen zichzelf laten zijn</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mint-box" style="margin-top:12px;">
+    <h3>Besluit: de 10 geboden als bevrijding</h3>
+    <p>De 10 geboden zijn Gods <strong>bevrijdende wegwijzers</strong>. Wie ze onderhoudt zal leven als een vrij mens. Een volk dat ze onderhoudt zal leven in een samenleving waar iedere mens tot zijn recht komt.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- 11. BERGREDE -->
+<!-- ════════════════════════════════════════ -->
+<div class="ch" id="s11">
+  <div class="ch-num">11</div>
+  <div>
+    <div class="ch-title">Wegwijzers: Jezus &amp; de Bergrede</div>
+    <div class="ch-sub">Matteüs 5–6 — zaligsprekingen, antithesen, grondhoudingen</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="card">
+  <h3>⛰️ Wat is de Bergrede?</h3>
+  <ul class="kv">
+    <li><span class="k">Wat</span><span class="v">De belangrijkste ethische redevoering van Jezus — beschrijft wat je moet doen om een goed christen/mens te zijn.</span></li>
+    <li><span class="k">Berg</span><span class="v">Symbolisch: een verhoog, een podium. Berg = dichter bij God en bij jezelf. Cf. berg Sinaï → Mozes → 10 geboden.</span></li>
+    <li><span class="k">Structuur</span><span class="v">3 delen: <span class="badge b-m">Zaligsprekingen</span> <span class="badge b-a">Antithesen</span> <span class="badge b-p">Grondhoudingen</span></span></li>
+    <li><span class="k">Relatie Mozes</span><span class="v">De Bergrede is een <em>vervolg</em> op de 10 geboden. Jezus gaat echter <strong>een stap verder</strong>: niet enkel regels en wetten, maar richtlijnen voor <strong>grensverleggende liefde</strong>.</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🌟 De 8 Zaligsprekingen (Mt 5, 3–12)</h3>
+  <p style="font-size:0.83rem; color:var(--muted); margin-bottom:14px;">Elke zaligspreking = een <strong>levensweg</strong> (wat je moet doen) + een <strong>belofte</strong> (wat je daarvoor ontvangt).</p>
+  <div class="zs-grid">
+    <div class="zs-header">Levensweg</div>
+    <div class="zs-header">Belofte</div>
+    <div class="zs-row">
+      <div class="zs-l"><strong>1.</strong> Gelukkig die arm van geest zijn / Verlos jezelf van materiële verlangens</div>
+      <div class="zs-r">want hun behoort het koninkrijk der hemelen / je bent ontvankelijk voor anderen</div>
+    </div>
+    <div class="zs-row">
+      <div class="zs-l"><strong>2.</strong> Gelukkig die verdriet hebben / Durf je kwetsbaar op te stellen</div>
+      <div class="zs-r">want zij zullen getroost worden / je vindt troost in anderen</div>
+    </div>
+    <div class="zs-row">
+      <div class="zs-l"><strong>3.</strong> Gelukkig die zachtmoedig zijn / Doorbreek de kringloop van geweld</div>
+      <div class="zs-r">want zij zullen het land erven / je bouwt aan een betere wereld</div>
+    </div>
+    <div class="zs-row">
+      <div class="zs-l"><strong>4.</strong> Gelukkig die hongeren naar gerechtigheid / Streef naar waarheid en rechtspraak</div>
+      <div class="zs-r">want zij zullen verzadigd worden / je vindt voldoening</div>
+    </div>
+    <div class="zs-row">
+      <div class="zs-l"><strong>5.</strong> Gelukkig die barmhartig zijn / Voel mee met anderen, wees empatisch</div>
+      <div class="zs-r">want zij zullen barmhartigheid ondervinden / je ontvangt zelf mededogen</div>
+    </div>
+    <div class="zs-row">
+      <div class="zs-l"><strong>6.</strong> Gelukkig die zuiver van hart zijn / Wees eerlijk en vrij van kwaad</div>
+      <div class="zs-r">want zij zullen God zien / je bent een vrij mens met een zuiver geweten</div>
+    </div>
+    <div class="zs-row">
+      <div class="zs-l"><strong>7.</strong> Gelukkig die vrede brengen / Leef en laat leven</div>
+      <div class="zs-r">want zij zullen kinderen van God genannt worden / iedereen is gelijk</div>
+    </div>
+    <div class="zs-row">
+      <div class="zs-l"><strong>8.</strong> Gelukkig die vervolgd worden omwille van de gerechtigheid / Blijf streven naar het goede, ook als het moeilijk wordt</div>
+      <div class="zs-r">want hun behoort het koninkrijk der hemelen / je laat het kwaad niet overwinnen</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>⚔️ De Antithesen — Jezus gaat verder</h3>
+  <p style="font-size:0.84rem; color:var(--muted); margin-bottom:12px;">Jezus stelt de tradtionele wet tegenover een hogere eis:</p>
+  <div style="overflow-x:auto;">
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th>Jullie hebben gehoord:</th>
+        <th>Maar ik zeg jullie:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pleeg geen moord</td>
+        <td>Leg je geschillen bij — ook woede is al onrecht</td>
+      </tr>
+      <tr>
+        <td>Pleeg geen overspel</td>
+        <td>Kijk niet begerig naar een vrouw</td>
+      </tr>
+      <tr>
+        <td>Heb je naaste lief en je vijand haat</td>
+        <td><strong>Heb je vijanden lief</strong> en bid voor wie je vervolgen</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="quote">"Haat brengt alleen meer haat voort, maar geloof in geweldloosheid creëert nieuwe kansen tot herstel."</div>
+</div>
+
+<div class="card">
+  <h3>🙏 De Grondhoudingen — 3 pijlers</h3>
+  <div class="g3">
+    <div class="mc mc-m">
+      <h4>1. Bidden</h4>
+      <p>Verbinding met God. Innerlijke stilte en reflectie. Niet als schouwspel, maar vanuit een oprecht hart.</p>
+    </div>
+    <div class="mc mc-g">
+      <h4>2. Vasten</h4>
+      <p>Zelfbeheersing en matigheid. Bewust afstand nemen van materiële behoeften. Ruimte maken voor het wezenlijke.</p>
+    </div>
+    <div class="mc mc-a">
+      <h4>3. Aalmoezen geven</h4>
+      <p>Delen met mensen in nood. Vrijgevigheid. Niet voor eigen eer, maar vanuit naastenliefde.</p>
+    </div>
+  </div>
+</div>
+
+<div class="dark-box">
+  <h3>🌍 Besluit: Goed mens zijn</h3>
+  <ul class="plain" style="color:rgba(255,255,255,0.87);">
+    <li>= een grondhouding die je deels bezit vanaf je geboorte, maar grotendeels <strong>aangeleerd krijgt</strong> door ouders, cultuur &amp; samenleving (nature &gt;&lt; nurture)</li>
+    <li>= zegt iets over jezelf ten opzichte van anderen (sociale kwaliteit)</li>
+    <li>= zegt iets over je ethisch denken en handelen (ethiek, geweten)</li>
+    <li>= gaat fundamenteel over <em>HET goede doen</em></li>
+  </ul>
+  <div class="quote" style="background:rgba(255,255,255,0.1); border-color:var(--mint); color:var(--mint); margin-top:14px;">
+    <strong>De Gulden Regel</strong><br>
+    Behandel anderen zoals je zelf behandeld wil worden.
+  </div>
+  <p style="margin-top:12px; font-size:0.85rem; opacity:0.8;">Jezus (Mt 5, 13–16): "Jullie zijn het zout van de aarde… Jullie zijn het licht in de wereld." → Oproep tot verantwoordelijkheid: je goede daden schijnen voor de mensen!</p>
+</div>
+
+<!-- EXAMENTIPS -->
+<div class="ch" style="margin-top:52px;">
+  <div class="ch-num" style="background: var(--gold); color: var(--dark);">★</div>
+  <div>
+    <div class="ch-title">Examentips — Sleutelbegrippen &amp; Denkers</div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div class="g3">
+  <div class="mc mc-a">
+    <h4>Hannah Arendt</h4>
+    <p><strong>Banaliteit van het kwaad:</strong> daders zijn geen monsters maar gewone mensen die plichtsbewust handelen zonder moreel na te denken. <em>Eichmann in Jerusalem (1963)</em>.</p>
+  </div>
+  <div class="mc mc-b">
+    <h4>Elie Wiesel</h4>
+    <p>Holocaustoverlevende. Geloofscrisis: God zweeg in Auschwitz. God niet verworpen, maar in opstand &amp; protest. God als mee-lijdende lotgenoot.</p>
+  </div>
+  <div class="mc mc-p">
+    <h4>Emmanuel Levinas</h4>
+    <p><strong>Gelaat van de Ander:</strong> het ethisch appèl dat de ander op mij doet. Verantwoordelijkheid gaat aan vrijheid vooraf. Vrijheid zit in het antwoord.</p>
+  </div>
+  <div class="mc mc-g">
+    <h4>Diabolisering</h4>
+    <p>Kwaad = gevolg van boosaardige personen. Gevaar: spiraal van geweld, "wij zijn goed, zij zijn slecht".</p>
+  </div>
+  <div class="mc mc-m">
+    <h4>Banalisering</h4>
+    <p>Kwaad = te weinig nadenken over gevolgen. Tandwieltje in een systeem. Permanente mogelijkheid voor iedereen.</p>
+  </div>
+  <div class="mc mc-d">
+    <h4>Fragmentatie</h4>
+    <p>Barrières opwerpen zodat het lijden van anderen je niet raakt. Gaat samen met zelfbedrog: het kwaad goedpraten voor jezelf.</p>
+  </div>
+  <div class="mc mc-a">
+    <h4>Endlösung</h4>
+    <p>"Eindoplossing": beslissing van de nazi's om alle Joden systematisch te vernietigen (1941–1945).</p>
+  </div>
+  <div class="mc mc-m">
+    <h4>Privatio boni</h4>
+    <p>Het kwaad als afwezigheid van het Goede. Kwaad is niet een zelfstandige kracht maar de ontbrekende aanwezigheid van God/het Goede.</p>
+  </div>
+  <div class="mc mc-g">
+    <h4>Genade (grace vs mercy)</h4>
+    <p><em>Grace</em> = krijgen wat je niet hebt verdiend. <em>Mercy</em> = niet krijgen wat je wel hebt verdiend. Genade is altijd een gratis, onverdiend geschenk van God.</p>
+  </div>
+  <div class="mc mc-b">
+    <h4>Vergeving vs. verzoening</h4>
+    <p>Vergeving = innerlijk proces slachtoffer. Verzoening = herstel van relatie. Vergeving ≠ automatisch verzoening.</p>
+  </div>
+  <div class="mc mc-p">
+    <h4>Utopie</h4>
+    <p>Grieks: "niet-plaats" maar ook "goede plaats". Ideale maar onbereikbare samenleving. Thomas More, 1516. Inspiratie voor verandering.</p>
+  </div>
+  <div class="mc mc-d">
+    <h4>Bergrede vs. 10 geboden</h4>
+    <p>10 geboden = regels &amp; wetten (Mozes). Bergrede = grensverleggende liefde (Jezus). Bergrede gaat verder: niet enkel niet kwaad doen, maar actief het goede doen.</p>
+  </div>
+</div>
+
+</main>
+</body>
+</html>
