@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samenvatting: Het Systeem Aarde</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --bg: #0b1120;
+    --surface: #131e30;
+    --surface2: #1a2842;
+    --surface3: #1f3050;
+    --indigo: #6d7ff5;
+    --cyan: #22d3ee;
+    --amber: #f59e0b;
+    --emerald: #10b981;
+    --rose: #f43f5e;
+    --violet: #a78bfa;
+    --text: #e2e8f0;
+    --muted: #8ca0bc;
+    --border: #1e3050;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.65;
+    padding: 1rem;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  /* ─── HEADER ───────────────────────────────── */
+  .header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    display: block;
+    margin: 1.5rem auto 0;
+    width: 80px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--indigo), var(--cyan));
+  }
+  .header .eyebrow {
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.8rem;
+  }
+  .header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 800;
+    background: linear-gradient(130deg, #fff 30%, var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+  .header .sub {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  /* ─── TOC ───────────────────────────────────── */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 2rem;
+  }
+  .toc h2 {
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .toc-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+  .toc-grid a {
+    color: var(--text);
+    text-decoration: none;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 0.28rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    transition: background 0.18s, color 0.18s;
+  }
+  .toc-grid a:hover {
+    background: var(--indigo);
+    border-color: var(--indigo);
+    color: #fff;
+  }
+
+  /* ─── SECTIONS ──────────────────────────────── */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    margin-bottom: 1.4rem;
+    position: relative;
+  }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.22rem 0.8rem;
+    font-size: 0.72rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+  }
+  .section-badge .num {
+    color: var(--cyan);
+    font-weight: 700;
+  }
+  .section h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+  .section .desc {
+    font-size: 0.84rem;
+    color: var(--muted);
+    margin-bottom: 1.3rem;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .sub-h {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 1.3rem 0 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* ─── CARDS ─────────────────────────────────── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.8rem;
+    margin: 0.8rem 0;
+  }
+  .card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+  }
+  .card .tag {
+    font-size: 0.68rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.35rem;
+  }
+  .card h4 { font-size: 0.9rem; margin-bottom: 0.4rem; color: #fff; }
+  .card p, .card ul { font-size: 0.82rem; color: var(--muted); }
+  .card ul { padding-left: 1rem; }
+  .card li { margin-bottom: 0.2rem; }
+
+  .card.indigo { border-top: 2px solid var(--indigo); }
+  .card.cyan   { border-top: 2px solid var(--cyan); }
+  .card.amber  { border-top: 2px solid var(--amber); }
+  .card.emerald{ border-top: 2px solid var(--emerald); }
+  .card.rose   { border-top: 2px solid var(--rose); }
+  .card.violet { border-top: 2px solid var(--violet); }
+
+  .card.indigo .tag { color: var(--indigo); }
+  .card.cyan   .tag { color: var(--cyan); }
+  .card.amber  .tag { color: var(--amber); }
+  .card.emerald .tag { color: var(--emerald); }
+  .card.rose   .tag { color: var(--rose); }
+  .card.violet .tag { color: var(--violet); }
+
+  /* ─── INFO BOXES ────────────────────────────── */
+  .box {
+    background: var(--surface2);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    margin: 0.7rem 0;
+    border-left: 3px solid var(--cyan);
+    font-size: 0.84rem;
+  }
+  .box.amber  { border-left-color: var(--amber); }
+  .box.emerald{ border-left-color: var(--emerald); }
+  .box.rose   { border-left-color: var(--rose); }
+  .box.indigo { border-left-color: var(--indigo); }
+  .box.violet { border-left-color: var(--violet); }
+  .box h4 {
+    font-size: 0.78rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--cyan);
+    margin-bottom: 0.5rem;
+  }
+  .box.amber  h4 { color: var(--amber); }
+  .box.emerald h4 { color: var(--emerald); }
+  .box.rose   h4 { color: var(--rose); }
+  .box.indigo h4 { color: var(--indigo); }
+  .box.violet h4 { color: var(--violet); }
+  .box p, .box ul { color: var(--muted); }
+  .box ul { padding-left: 1.1rem; }
+  .box li { margin-bottom: 0.25rem; }
+  .box p + p { margin-top: 0.35rem; }
+
+  /* ─── TWO COLUMN ────────────────────────────── */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 0.7rem 0; }
+
+  /* ─── TABLE ─────────────────────────────────── */
+  table { width: 100%; border-collapse: collapse; margin: 0.9rem 0; font-size: 0.82rem; }
+  th {
+    background: var(--surface2);
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.55rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 0.55rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  /* ─── STEPS ─────────────────────────────────── */
+  .steps { list-style: none; margin: 0.8rem 0; }
+  .steps li {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 0.7rem;
+    align-items: flex-start;
+  }
+  .snum {
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--indigo);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+  .steps .sc {
+    font-size: 0.84rem;
+    color: var(--muted);
+    padding-top: 0.18rem;
+  }
+  .steps .sc strong { color: var(--text); }
+
+  /* ─── LAYER STACK ───────────────────────────── */
+  .layer {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.3rem;
+  }
+  .layer .ln { font-weight: 700; font-size: 0.86rem; }
+  .layer .ld { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+
+  /* ─── CHAIN ─────────────────────────────────── */
+  .chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0.8rem 0;
+  }
+  .ci {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 0.28rem 0.65rem;
+    font-size: 0.79rem;
+  }
+  .ca { color: var(--amber); font-weight: 700; font-size: 0.9rem; }
+
+  /* ─── HIGHLIGHTS ────────────────────────────── */
+  .hi  { color: var(--indigo); font-weight: 600; }
+  .hc  { color: var(--cyan);   font-weight: 600; }
+  .ha  { color: var(--amber);  font-weight: 600; }
+  .he  { color: var(--emerald);font-weight: 600; }
+  .hr  { color: var(--rose);   font-weight: 600; }
+  .hv  { color: var(--violet); font-weight: 600; }
+
+  p  { font-size: 0.84rem; color: var(--muted); margin-bottom: 0.4rem; }
+  strong { color: var(--text); }
+  ul, ol { font-size: 0.84rem; color: var(--muted); padding-left: 1.2rem; }
+  li { margin-bottom: 0.25rem; }
+
+  /* ─── FOOTER ────────────────────────────────── */
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: #3d5470;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 580px) {
+    .two    { grid-template-columns: 1fr; }
+    .cards  { grid-template-columns: 1fr 1fr; }
+    .chain  { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 360px) {
+    .cards  { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<div class="header">
+  <div class="eyebrow">Aardrijkskunde 5 · ISAAC Module 2 · D&amp;A-finaliteit</div>
+  <h1>Het Systeem Aarde</h1>
+  <div class="sub">Volledige samenvatting — Hoofdstuk 1, 2 &amp; 4 &nbsp;·&nbsp; H3 niet te kennen</div>
+</div>
+
+<!-- ═══════════════════ TOC ═══════════════════════ -->
+<div class="toc">
+  <h2>// inhoud</h2>
+  <div class="toc-grid">
+    <a href="#s1">1 · De vier sferen</a>
+    <a href="#s2">2 · Atmosfeer</a>
+    <a href="#s3">3 · Geosfeer</a>
+    <a href="#s4">4 · Interacties</a>
+    <a href="#s5">5 · Geologische tijdschaal</a>
+    <a href="#s6">6 · Interne warmte</a>
+    <a href="#s7">7 · Vulkanen → geosfeer</a>
+    <a href="#s8">8 · Primaire atmosfeer</a>
+    <a href="#s9">9 · Secundaire atmosfeer</a>
+    <a href="#s10">10 · Tertiaire atmosfeer</a>
+    <a href="#s11">11 · Hydrosfeer &amp; biosfeer</a>
+    <a href="#s12">12 · Stralingsbalans</a>
+    <a href="#s13">13 · Warmtetransport</a>
+    <a href="#s14">14 · Winden</a>
+    <a href="#s15">15 · Luchtvochtigheid</a>
+    <a href="#s16">16 · Weer in W-Europa</a>
+  </div>
+</div>
+
+<!-- ═══════════════════ S1: VIER SFEREN ══════════ -->
+<div class="section" id="s1">
+  <div class="section-badge"><span class="num">01</span> Hoofdstuk 1</div>
+  <h2>De vier sferen</h2>
+  <div class="desc">Het systeem aarde bestaat uit vier sferen die voortdurend in interactie zijn met elkaar</div>
+
+  <div class="cards">
+    <div class="card indigo">
+      <div class="tag">Atmosfeer</div>
+      <h4>🌫️ Gaslaag</h4>
+      <p>Dunne laag van <strong>gassen</strong> die een planeet bedekt</p>
+    </div>
+    <div class="card cyan">
+      <div class="tag">Geosfeer</div>
+      <h4>🪨 Gesteente</h4>
+      <p>Binnenste delen t/m het vaste deel aan de buitenkant; <strong>mineralen &amp; gesteenten</strong></p>
+    </div>
+    <div class="card emerald">
+      <div class="tag">Hydrosfeer</div>
+      <h4>💧 Water</h4>
+      <p>Al het water: oceanen, rivieren, ijs, grondwater</p>
+    </div>
+    <div class="card amber">
+      <div class="tag">Biosfeer</div>
+      <h4>🌿 Leven</h4>
+      <p>Alle levende organismen en ecosystemen</p>
+    </div>
+  </div>
+
+  <div class="box emerald">
+    <h4>Systeemdenken</h4>
+    <p>Elke sfeer is <strong>dynamisch</strong> — niet statisch. Alle sferen staan voortdurend in <strong>interactie</strong> met elkaar. Deze module bestudeert de geosfeer en atmosfeer grondig; de hydrosfeer komt aan bod bij warmteverdeling.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ S2: ATMOSFEER ════════════ -->
+<div class="section" id="s2">
+  <div class="section-badge"><span class="num">02</span> Hoofdstuk 1.1.2</div>
+  <h2>De atmosfeer</h2>
+  <div class="desc">Gelaagde opbouw — van buiten naar binnnen (ruimte → aardoppervlak)</div>
+
+  <div class="sub-h">🏗️ Lagen (van boven naar beneden)</div>
+
+  <div class="layer" style="background:#1a1a3a;">
+    <div class="ln" style="color:#a5b4fc;">Exosfeer &nbsp;&nbsp;1 000 – 10 000 km</div>
+    <div class="ld">H₂O, He, CO₂, O₂; samengedrukt bij hoge zonneactiviteit (1000 km), uitgerekt bij lage (10 000 km)</div>
+  </div>
+  <div class="layer" style="background:#132030;">
+    <div class="ln" style="color:#67e8f9;">Thermosfeer &nbsp;&nbsp;t/m 690 km</div>
+    <div class="ld">Temperatuur tot <strong>1500 °C</strong> door krachtige zonnestralen op deeltjes. ISS zweeft hier rond.</div>
+  </div>
+  <div class="layer" style="background:#0e2020;">
+    <div class="ln" style="color:#34d399;">Ionosfeer (deel van thermosfeer)</div>
+    <div class="ld">X-stralen + UV slaan elektronen los → <strong>ionen</strong>. Gevolg: weerkaatsen radiogolven + veroorzaken <strong>poollicht</strong> (aurora's)</div>
+  </div>
+  <div class="layer" style="background:#1a1500;">
+    <div class="ln" style="color:#fcd34d;">Mesosfeer &nbsp;&nbsp;50 – 85 km</div>
+    <div class="ld">Meteoren verbranden hier door wrijving. Temperatuur daalt tot <strong>−85 °C</strong>. Nog weinig over geweten.</div>
+  </div>
+  <div class="layer" style="background:#1a0f00;">
+    <div class="ln" style="color:#fb923c;">Stratosfeer &nbsp;&nbsp;10 – 50 km</div>
+    <div class="ld">Rustig &amp; stabiel → ideaal voor <strong>luchtvaart</strong>. <strong>Ozonlaag</strong> op 15–35 km. Straalstromen onderaan (stratosfeer).</div>
+  </div>
+  <div class="layer" style="background:#1a0005;">
+    <div class="ln" style="color:#f87171;">Troposfeer &nbsp;&nbsp;0 – 10 km</div>
+    <div class="ld">Alle <strong>weersverschijnselen</strong>: wolken, wind, neerslag. Bevat bijna alle waterdamp. Temperatuur daalt naarmate je stijgt.</div>
+  </div>
+
+  <div class="sub-h">🌡️ Temperatuurverloop samengevat</div>
+  <div class="chain">
+    <div class="ci">Troposfeer: ↘ koud</div><div class="ca">→</div>
+    <div class="ci">Stratosfeer: ↗ warm (ozon)</div><div class="ca">→</div>
+    <div class="ci">Mesosfeer: ↘ −85 °C</div><div class="ca">→</div>
+    <div class="ci">Thermosfeer: ↗ +1500 °C</div>
+  </div>
+
+  <div class="sub-h">🧪 Samenstelling (droge lucht, nabij aardoppervlak)</div>
+  <div class="cards">
+    <div class="card indigo"><div class="tag">N₂</div><h4>Stikstof</h4><p><strong>78,084 %</strong></p></div>
+    <div class="card cyan"><div class="tag">O₂</div><h4>Zuurstof</h4><p><strong>20,946 %</strong></p></div>
+    <div class="card amber"><div class="tag">Ar</div><h4>Argon</h4><p><strong>0,934 %</strong></p></div>
+    <div class="card rose"><div class="tag">CO₂ + rest</div><h4>Sporengassen</h4><p><strong>~0,04 %</strong> incl. broeikasgassen. H₂O: 0–4 % (variabel)</p></div>
+  </div>
+
+  <div class="box amber">
+    <h4>Luchtdruk</h4>
+    <p>Aan het aardoppervlak gemiddeld <strong>1013 hPa</strong>. Druk daalt naarmate je hoger gaat (minder deeltjes). Hoe dieper in het water → meer druk (zelfde principe).</p>
+  </div>
+
+  <div class="sub-h">🔵 Ozonlaag &amp; UV-bescherming</div>
+  <div class="cards">
+    <div class="card emerald"><div class="tag">UV-A</div><h4>Lage energie</h4><p>Wordt <strong>niet</strong> geabsorbeerd door ozonlaag</p></div>
+    <div class="card amber"><div class="tag">UV-B</div><h4>Gemiddelde energie</h4><p>Wordt <strong>deels</strong> geabsorbeerd</p></div>
+    <div class="card rose"><div class="tag">UV-C</div><h4>Hoge energie</h4><p>Wordt <strong>zo goed als volledig</strong> geabsorbeerd</p></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ S3: GEOSFEER ═════════════ -->
+<div class="section" id="s3">
+  <div class="section-badge"><span class="num">03</span> Hoofdstuk 1.1.1</div>
+  <h2>De geosfeer</h2>
+  <div class="desc">Van binnenkern tot aardkorst — ontdekt via seismische golven. Twee manieren om voor te stellen: chemisch of fysisch.</div>
+
+  <div class="two">
+    <div>
+      <div class="sub-h">⚙️ Fysische eigenschappen</div>
+      <div class="layer" style="background:#1a1000;">
+        <div class="ln" style="color:#f97316;">Lithosfeer</div>
+        <div class="ld"><strong>Vast</strong> · korst + bovenste vaste deel buitenmantel · opgedeeld in <strong>platen</strong> · drijft op asthenosfeer</div>
+      </div>
+      <div class="layer" style="background:#1a1500;">
+        <div class="ln" style="color:#fbbf24;">Asthenosfeer</div>
+        <div class="ld"><strong>Plastisch</strong> · onderste deel buitenmantel · deels gesmolten door hitte · <strong>laat beweging toe</strong></div>
+      </div>
+      <div class="layer" style="background:#1a0f05;">
+        <div class="ln" style="color:#fb923c;">Mesosfeer (mantel)</div>
+        <div class="ld"><strong>Vast</strong> · hoge temp. én hoge druk · binnenmantel</div>
+      </div>
+      <div class="layer" style="background:#1f0000;">
+        <div class="ln" style="color:#f87171;">Buitenkern</div>
+        <div class="ld"><strong>Vloeibaar</strong> · 4 500 – 5 500 °C · convectiestromen Fe → <strong>aardmagneetveld</strong></div>
+      </div>
+      <div class="layer" style="background:#280000;">
+        <div class="ln" style="color:#fca5a5;">Binnenkern</div>
+        <div class="ld"><strong>Vast</strong> · ~5 500 °C · hoogste druk · groeit 1 mm/jaar (kern koelt langzaam af)</div>
+      </div>
+    </div>
+    <div>
+      <div class="sub-h">⚗️ Chemische samenstelling</div>
+      <div class="box rose" style="margin-bottom:0.7rem;">
+        <h4>Kern (NiFe)</h4>
+        <p>Zware elementen: <strong>nikkel (Ni)</strong> en <strong>ijzer (Fe)</strong></p>
+      </div>
+      <div class="box amber" style="margin-bottom:0.7rem;">
+        <h4>Mantel (silicaten)</h4>
+        <p>Voornamelijk <strong>Si en O</strong> (silicaten); buitenmantel bevat lithosfeer + asthenosfeer; binnenmantel bevat mesosfeer</p>
+      </div>
+      <div class="box emerald">
+        <h4>Korst — 2 soorten</h4>
+        <ul>
+          <li><strong>Oceanisch (SiMa)</strong>: basalt · 3 g/cm³ · gemiddeld 6 km dik · max. 270 mio jaar oud</li>
+          <li><strong>Continentaal (SiAl)</strong>: graniet · 2,7 g/cm³ · 35–40 km dik · kan &gt;4 miljard jaar oud worden</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h4>Hoe weten we dit?</h4>
+    <p>Via <strong>seismische golven (aardbevingsgolven)</strong> gemeten met seismografen wereldwijd, gecombineerd met laboratoriumsimulaties en theoretische voorspellingen. Scherpe grenzen in dichtheid tussen lagen heten <strong>discontinuïteiten</strong>.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ S4: INTERACTIES ══════════ -->
+<div class="section" id="s4">
+  <div class="section-badge"><span class="num">04</span> Hoofdstuk 1.2</div>
+  <h2>Interacties tussen en binnen de sferen</h2>
+  <div class="desc">Voorbeelden van wisselwerkingen — overal en continu aanwezig</div>
+
+  <table>
+    <thead>
+      <tr><th>Van sfeer</th><th>Naar sfeer</th><th>Voorbeeld</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="hc">Geosfeer</span></td><td>Geosfeer</td><td>Lava stolt → nieuw gesteente; vulkanische eilanden groeien aan</td></tr>
+      <tr><td><span class="hc">Geosfeer</span></td><td>Atmosfeer</td><td>Vulkaan brengt CO₂, SO₂ en aswolken in atmosfeer → globale afkoeling mogelijk</td></tr>
+      <tr><td><span class="hc">Geosfeer</span></td><td>Hydrosfeer</td><td>Lava in zee → water kookt; mineralen uit gesteente komen in water</td></tr>
+      <tr><td><span class="hc">Geosfeer</span></td><td>Biosfeer</td><td>Vulkanische bodems zijn vruchtbaar → pioniersplanten, later landbouw</td></tr>
+      <tr><td><span class="he">Hydrosfeer</span></td><td>Geosfeer</td><td>Water erodeert gesteente; rivieren vormen hoefijzermeren</td></tr>
+      <tr><td><span class="he">Hydrosfeer</span></td><td>Atmosfeer</td><td>Zeewater verdampt → waterdamp in atmosfeer</td></tr>
+      <tr><td><span class="he">Hydrosfeer</span></td><td>Biosfeer</td><td>Zonder vloeibaar water geen leven; vissen halen opgeloste O₂ uit water</td></tr>
+      <tr><td><span class="hi">Atmosfeer</span></td><td>Geosfeer</td><td>Winderosie modelleert rotsen; wind veroorzaakt duinverplaatsingen</td></tr>
+      <tr><td><span class="hi">Atmosfeer</span></td><td>Hydrosfeer</td><td>Sneeuw in bergen → gletsjers</td></tr>
+      <tr><td><span class="hi">Atmosfeer</span></td><td>Biosfeer</td><td>Heersende windrichting bepaalt hoe bomen scheef groeien</td></tr>
+      <tr><td><span class="ha">Biosfeer</span></td><td>Geosfeer</td><td>Regenwormen maken bodem kruimelachtig; bevorderen waterinfiltratie</td></tr>
+      <tr><td><span class="ha">Biosfeer</span></td><td>Atmosfeer</td><td>Planten nemen CO₂ op, brengen O₂; fossiele verbranding → CO₂</td></tr>
+      <tr><td><span class="ha">Biosfeer</span></td><td>Hydrosfeer</td><td>Mens loost afvalwater; voedselkringlopen in oceaan</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ S5: TIJDSCHAAL ═══════════ -->
+<div class="section" id="s5">
+  <div class="section-badge"><span class="num">05</span> Hoofdstuk 2.1</div>
+  <h2>De geologische tijdschaal</h2>
+  <div class="desc">Grafische manier om de 4,6 miljard jaar aardgeschiedenis voor te stellen. Eenheden: eon → era → periode → tijdvak.</div>
+
+  <table>
+    <thead>
+      <tr><th>Eon</th><th>Begin (mio jaar)</th><th>Sleutelgebeurtenissen</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="hr">Hadeïcum</span></td>
+        <td>4 567 – 4 000</td>
+        <td>Magma-oceaan, accretie, impact met Theia → maan, primaire atmosfeer, secundaire atmosfeer, ontgassing</td>
+      </tr>
+      <tr>
+        <td><span class="hc">Archeïcum</span></td>
+        <td>4 000 – 2 500</td>
+        <td>Eerste oceanen (vanaf 3,9 mia), aardmagneetveld, eerste leven, fotosynthese begint, banded iron formation</td>
+      </tr>
+      <tr>
+        <td><span class="he">Proterozoïcum</span></td>
+        <td>2 500 – 541</td>
+        <td>O₂ stapelt op → tertiaire atmosfeer (~2,2 mia), ozonlaag, sneeuwbalaarde, eerste meercelligen, Rodinia</td>
+      </tr>
+      <tr>
+        <td><span class="ha">Fanerozoïcum</span></td>
+        <td>541 – heden</td>
+        <td>Ozonlaag beschermt land (470 mia), eerste landdieren/-planten, Pangaea, dinosauriërs, zoogdieren, Homo sapiens</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box amber">
+    <h4>Geologische klok</h4>
+    <p>Alternatieve ronde voorstelling. Lezen in <strong>wijzerzin vanaf 12 uur</strong>. Maakt duidelijk hoe recent mensen zijn t.o.v. de totale aardgeschiedenis. Fanerozoïcum = slechts een kleine schijf!</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ S6: INTERNE WARMTE ════════ -->
+<div class="section" id="s6">
+  <div class="section-badge"><span class="num">06</span> Hoofdstuk 2.2</div>
+  <h2>Interne warmte &amp; convectie</h2>
+  <div class="desc">Warmte uit de begintijd van de aarde drijft nog steeds processen aan — van platentektoniek tot geothermische energie</div>
+
+  <div class="sub-h">🚀 Ontstaan van de aarde (hadeïcum)</div>
+  <ul class="steps">
+    <li><div class="snum">1</div><div class="sc"><strong>Planetesimalen worden groter</strong> door accretie (stof en deeltjes klonteren samen via zwaartekracht)</div></li>
+    <li><div class="snum">2</div><div class="sc"><strong>Planetesimalen botsen</strong> met elkaar → meer massa</div></li>
+    <li><div class="snum">3</div><div class="sc"><strong>Protoplaneten vormen</strong> zich (grotere objecten)</div></li>
+    <li><div class="snum">4</div><div class="sc"><strong>Differentiatie:</strong> zwaardere elementen (Fe, Ni) zakken naar midden; lichtere elementen (Si, O) blijven aan buitenkant → gelaagde opbouw</div></li>
+    <li><div class="snum">5</div><div class="sc"><strong>Protoplaneten zijn heel heet</strong> (al die botsingen!) en volledig gesmolten → magma-oceaan</div></li>
+  </ul>
+
+  <div class="sub-h">🔄 Principe van convectie</div>
+  <div class="box indigo">
+    <h4>Hoe werkt convectie?</h4>
+    <ul>
+      <li>Warm deeltje → hogere kinetische energie → groter volume → <strong>lagere massadichtheid</strong> → stijgt omhoog</li>
+      <li>Koud deeltje → lagere kinetische energie → <strong>hogere massadichtheid</strong> → zakt naar beneden</li>
+      <li>Gevolg: een <strong>stromingsbeweging</strong> (circulatiecel) ontstaat = <strong>convectie</strong></li>
+    </ul>
+  </div>
+
+  <div class="cards">
+    <div class="card indigo"><div class="tag">Mantelconvectie</div><h4>🪨 Geosfeer</h4><p>Bewegingen diep in de mantel → drijft platentektoniek</p></div>
+    <div class="card cyan"><div class="tag">Diepwaterpomp</div><h4>💧 Hydrosfeer</h4><p>Thermische + haliene convectie in oceanen</p></div>
+    <div class="card emerald"><div class="tag">Wind</div><h4>🌬️ Atmosfeer</h4><p>Luchtbeweging door temperatuurverschillen</p></div>
+  </div>
+
+  <div class="box emerald">
+    <h4>🐻 Waarom is Mars vulkanisch inactief?</h4>
+    <p>Mars is <strong>kleiner</strong> dan de aarde → kleinere verhouding volume/oppervlak → koelt sneller af → interne warmte is al weg. Zelfde principe als een <strong>ijsbeer vs. zwarte beer</strong>: grotere dieren verliezen relatief minder warmte.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ S7: VULKANEN → GEOSFEER ══ -->
+<div class="section" id="s7">
+  <div class="section-badge"><span class="num">07</span> Hoofdstuk 2.3</div>
+  <h2>Vulkanen maken de geosfeer</h2>
+  <div class="desc">Intern heet materiaal ontsnapt aan het oppervlak en bouwt zo nieuwe korst op</div>
+
+  <div class="chain">
+    <div class="ci">Interne warmte</div><div class="ca">→</div>
+    <div class="ci">Magma welt op</div><div class="ca">→</div>
+    <div class="ci">Vulkaan</div><div class="ca">→</div>
+    <div class="ci">Lava aan oppervlak</div><div class="ca">→</div>
+    <div class="ci">Lava koelt af &amp; stolt</div><div class="ca">→</div>
+    <div class="ci">Nieuw vast gesteente</div><div class="ca">→</div>
+    <div class="ci">Geosfeer groeit</div>
+  </div>
+
+  <div class="two">
+    <div class="box">
+      <h4>Magma vs. lava</h4>
+      <p><strong>Magma</strong> = vloeibaar gesteente <em>onder</em> het aardoppervlak.<br>
+      <strong>Lava</strong> = hetzelfde materiaal maar <em>aan</em> het oppervlak.</p>
+    </div>
+    <div class="box amber">
+      <h4>Soorten vulkanen</h4>
+      <ul>
+        <li><strong>Spleetvulkaan</strong> (bv. IJsland): langs een breuk</li>
+        <li><strong>Schildvulkaan</strong> (bv. Hawaï): vlakke conusvorm, vloeibare lava</li>
+        <li><strong>Stratovulkaan</strong> (bv. Japan): steilere, explosieve vulkaan</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ S8: PRIMAIRE ATMO ═══════ -->
+<div class="section" id="s8">
+  <div class="section-badge"><span class="num">08</span> Hoofdstuk 2.4.1</div>
+  <h2>Primaire atmosfeer</h2>
+  <div class="desc">De allereerste atmosfeer — verdween snel door de zonnewind</div>
+
+  <div class="two">
+    <div class="box indigo">
+      <h4>Samenstelling</h4>
+      <p>Lichte gassen: <strong>H₂</strong> (waterstof) en <strong>He</strong> (helium) uit de accretieschijf rondom de proto-zon</p>
+    </div>
+    <div class="box rose">
+      <h4>Waarom verdwenen?</h4>
+      <p><strong>Zonnewind</strong> + kleine massa van de jonge aarde → onvoldoende zwaartekracht om lichte gassen vast te houden → ontsnappen naar de ruimte</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ S9: SECUNDAIRE ATMO ═════ -->
+<div class="section" id="s9">
+  <div class="section-badge"><span class="num">09</span> Hoofdstuk 2.4.2</div>
+  <h2>Secundaire atmosfeer</h2>
+  <div class="desc">Ontstaan door ontgassing van vulkanen en botsingen met planetesimalen (~4,5 mia jaar geleden)</div>
+
+  <div class="box">
+    <h4>Ontgassing</h4>
+    <p>In magma zitten gassen opgelost. Bij vulkaanuitbarsting → <strong>ontgassing</strong>: gassen komen vrij. Gassen in de secundaire atmosfeer: <span class="ha">H₂O</span> (waterdamp), <span class="ha">CO₂</span>, <span class="ha">CH₄</span>, NH₃, SO₂, N₂. Bijkomende bronnen: kometen en planetesimalen (~4,5 – 3,8 mia jaar)</p>
+  </div>
+
+  <div class="two">
+    <div class="box rose">
+      <h4>⚠️ Veel broeikasgassen!</h4>
+      <p>De secundaire atmosfeer bevatte verhoudingsgewijs veel broeikasgassen → <strong>natuurlijk broeikaseffect was veel groter</strong> dan nu → aarde was erg warm</p>
+    </div>
+    <div class="box amber">
+      <h4>Wat met O₂?</h4>
+      <p>UV-licht splitst CO₂ + H₂O → O₂ gevormd (vanaf 3,5 mia jaar).<br>
+      Maar: O₂ wordt onmiddellijk <strong>gebonden aan ijzer</strong> → ijzeroxide → <strong>jaspilliet</strong> (banded iron formation — roodgekleurd gesteente)</p>
+    </div>
+  </div>
+
+  <div class="box emerald">
+    <h4>Fotosynthese</h4>
+    <p>Eerste levensvormen in oceanen deden al aan fotosynthese vanaf ~3 mia jaar. Het geproduceerde O₂ werd echter ook onmiddellijk gebonden aan ijzer. Zolang er voldoende ijzer was, bleef O₂ afwezig uit de atmosfeer.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ S10: TERTIAIRE ATMO ═════ -->
+<div class="section" id="s10">
+  <div class="section-badge"><span class="num">10</span> Hoofdstuk 2.4.3</div>
+  <h2>Tertiaire atmosfeer</h2>
+  <div class="desc">Ontstaan ~2,2 miljard jaar geleden — het keerpunt: O₂ stapelt op</div>
+
+  <div class="chain">
+    <div class="ci">Fotosynthese produceert O₂</div><div class="ca">→</div>
+    <div class="ci">Al het ijzer is opgebruikt</div><div class="ca">→</div>
+    <div class="ci">O₂ stapelt op in atmosfeer</div><div class="ca">→</div>
+    <div class="ci">Atmosfeer verandert totaal</div><div class="ca">→</div>
+    <div class="ci">Ozonlaag vormt zich</div><div class="ca">→</div>
+    <div class="ci">Leven op land mogelijk (470 mia jaar)</div>
+  </div>
+
+  <div class="two">
+    <div class="box indigo">
+      <h4>Ozonlaag</h4>
+      <p>Groeide miljoenen jaren aan. Pas <strong>470 miljoen jaar geleden</strong> dik genoeg om het aardoppervlak te beschermen tegen schadelijke UV-straling → start van leven op land.</p>
+    </div>
+    <div class="box rose">
+      <h4>❄️ Sneeuwbalaarde</h4>
+      <p>Door grote schommelingen in broeikasgassen: periodes van extreem lage temperaturen → aarde bijna volledig bedekt met ijs. Er wordt <strong>nooit een stabiel evenwicht</strong> bereikt.</p>
+    </div>
+  </div>
+
+  <div class="box amber">
+    <h4>Vergelijking met Venus &amp; Mars</h4>
+    <ul>
+      <li><strong>Venus:</strong> CO₂-ontgassing sloeg op hol → broeikaseffect oncontroleerbaar → 474 °C; luchtdruk 90× die van aarde; zwavelbewolking</li>
+      <li><strong>Mars:</strong> massa slechts 10,7% van aarde → te weinig zwaartekracht om gassen vast te houden; luchtdruk 0,07× → ijskast; vulkanen uitgedoofd</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════ S11: HYDRO + BIO ═════════ -->
+<div class="section" id="s11">
+  <div class="section-badge"><span class="num">11</span> Hoofdstuk 2.5 &amp; 2.6</div>
+  <h2>Hydrosfeer &amp; biosfeer</h2>
+  <div class="desc">Hoe water en het eerste leven op aarde ontstonden</div>
+
+  <div class="sub-h">💧 Oorsprong van water</div>
+  <div class="two">
+    <div class="box">
+      <h4>Verklaring 1 — Ontgassing</h4>
+      <p>Watermoleculen in de mantel kwamen vrij bij ontgassing → waterdamp in atmosfeer. Toen atmosfeer verzadigd raakte en afkoelde → <strong>condensatie → regen</strong> (honderdduizenden jaren lang) → eerste oceanen (50–90 °C)</p>
+    </div>
+    <div class="box amber">
+      <h4>Verklaring 2 — Kometen &amp; meteorieten</h4>
+      <p>Koolstofhoudende chondrieten bevatten tot <strong>20% ijs</strong>. Massaal gevallen op de jonge aarde (4,5 – 3,8 mia jaar). Eerste bewijs van oceanen: gesteenten in Groenland, 3,9 mia jaar oud.</p>
+    </div>
+  </div>
+
+  <div class="sub-h">🦠 Oorsprong van het leven</div>
+  <div class="box emerald">
+    <h4>Waarom in water?</h4>
+    <p>Water is een <strong>ideaal oplosmiddel</strong>. Bouwstenen voor leven stapelden zich op: <strong>S, P, O, N, C, H</strong>. Per toeval kwamen ze samen → eerste eencellige organisme.</p>
+    <p>Eerste eencelligen leefden vermoedelijk bij <strong>hydrothermale bronnen</strong> (diep in oceaan): heet water, rijk aan chemische elementen.</p>
+    <p>Alle latere leven (bacteriën, schimmels, planten, dieren) evolueerde uit die oceaan-organismen.</p>
+  </div>
+
+  <div class="box indigo">
+    <h4>Chronologische volgorde van de sferen</h4>
+    <div class="chain" style="margin:0.5rem 0 0;">
+      <div class="ci">Geosfeer</div><div class="ca">→</div>
+      <div class="ci">Atmosfeer</div><div class="ca">→</div>
+      <div class="ci">Hydrosfeer</div><div class="ca">→</div>
+      <div class="ci">Biosfeer</div>
+    </div>
+    <p style="margin-top:0.5rem;">Alle sferen ontstonden in een relatief <strong>korte tijdsspanne</strong>. Zodra er meer dan één sfeer was, volgden de interacties bijzonder snel.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ S12: STRALINGSBALANS ═════ -->
+<div class="section" id="s12">
+  <div class="section-badge"><span class="num">12</span> Hoofdstuk 4.1 &amp; 4.2</div>
+  <h2>De ongelijke stralingsbalans</h2>
+  <div class="desc">Hoofdstuk 4 — Waarom is het niet overal even warm op aarde?</div>
+
+  <div class="box">
+    <h4>Instraling, albedo &amp; uitstraling</h4>
+    <p><strong>Instraling</strong> = zonne-energie die het aardoppervlak bereikt (zichtbaar licht).<br>
+    <strong>Albedo</strong> = fractie die wordt <em>weerkaatst</em> (teruggestuurd naar ruimte).<br>
+    <strong>Uitstraling</strong> = geabsorbeerde energie, omgezet in warmte (infrarood).<br>
+    <strong>Broeikaseffect</strong> = broeikasgassen sturen warmte terug naar aardoppervlak → gemiddeld <strong>+15 °C</strong> i.p.v. −18 °C.</p>
+  </div>
+
+  <div class="sub-h">🌍 Vier oorzaken van ongelijke verwarming</div>
+  <div class="cards">
+    <div class="card indigo">
+      <div class="tag">1. Instraling</div>
+      <h4>📐 Invalshoek</h4>
+      <p>Bolvorm + schuine aardas (23,5°) → kleinere invalshoek = grotere bestraalde oppervlak = minder opwarming per m². Polen veel koeler dan evenaar.</p>
+    </div>
+    <div class="card cyan">
+      <div class="tag">2. Albedo</div>
+      <h4>🌨️ Weerkaatsing</h4>
+      <ul>
+        <li>Verse sneeuw: <strong>85–95 %</strong></li>
+        <li>Ijs op zee: 60 %</li>
+        <li>Witte wolken: 50–90 %</li>
+        <li>Zand: 20–40 %</li>
+        <li>Oceaan: <strong>5–10 %</strong></li>
+        <li>Bos: 5–20 %</li>
+      </ul>
+    </div>
+    <div class="card emerald">
+      <div class="tag">3. Water vs. land</div>
+      <h4>💧 Warmtecapaciteit</h4>
+      <p>Water = traag opwarmen + traag afkoelen (sterke bindingen; licht dringt diep door). Land = snel opwarmen + snel afkoelen (enkel dunne bovenlaag).</p>
+      <p>Grote landmassa's hebben veel extremere temperatuurverschillen.</p>
+    </div>
+    <div class="card amber">
+      <div class="tag">4. Hoogte</div>
+      <h4>⛰️ Lapse rate</h4>
+      <p>Temperatuur daalt <strong>~0,8 °C per 100 m</strong>. Door lagere luchtdruk: deeltjes botsen minder → koelen af.</p>
+    </div>
+  </div>
+
+  <div class="box rose">
+    <h4>⚖️ Ongelijke warmtebalans</h4>
+    <p><strong>Evenaar:</strong> instraling &gt; uitstraling → <span class="hr">energieoverschot</span> → warmtetransport nodig naar hogere breedtes.<br>
+    <strong>Polen:</strong> uitstraling &gt; instraling → <span class="hc">energietekort</span>.<br>
+    Gevolg: <strong>warmtetransport van evenaar naar polen</strong> via winden en zeestromen.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ S13: WARMTETRANSPORT ═════ -->
+<div class="section" id="s13">
+  <div class="section-badge"><span class="num">13</span> Hoofdstuk 4.3</div>
+  <h2>Warmtetransport</h2>
+  <div class="desc">Winden en oceaanstromingen verdelen de zonne-energie over de hele planeet</div>
+
+  <div class="cards">
+    <div class="card indigo"><div class="tag">Conductie</div><h4>Geleiding</h4><p>Via direct contact tussen deeltjes</p></div>
+    <div class="card cyan"><div class="tag">Radiatie</div><h4>Straling</h4><p>Via elektromagnetische golven</p></div>
+    <div class="card amber"><div class="tag">Convectie</div><h4>Stroming ★</h4><p>Via beweging van gassen/vloeistoffen — <strong>verreweg het belangrijkste!</strong></p></div>
+  </div>
+
+  <div class="two">
+    <div class="box emerald">
+      <h4>🌬️ Winden</h4>
+      <p>Verantwoordelijk voor <strong>60 %</strong> van het warmtetransport</p>
+    </div>
+    <div class="box">
+      <h4>🌊 Zeestromingen</h4>
+      <p>Verantwoordelijk voor <strong>40 %</strong> van het warmtetransport</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ S14: WINDEN ══════════════ -->
+<div class="section" id="s14">
+  <div class="section-badge"><span class="num">14</span> Hoofdstuk 4.3.1</div>
+  <h2>Warmtetransport via winden</h2>
+  <div class="desc">Wind = horizontale verplaatsing van lucht van hoge- naar lagedrukgebied</div>
+
+  <div class="sub-h">📊 Drukgebieden &amp; luchtcirculatie</div>
+  <div class="two">
+    <div class="box rose">
+      <h4>Lagedrukgebied (L)</h4>
+      <ul>
+        <li>Warme lucht stijgt op</li>
+        <li>Lucht wordt 'aangezogen' van H naar L</li>
+        <li>Veel <strong>bewolking &amp; neerslag</strong></li>
+        <li>NH: lucht draait <strong>tegenwijzerzin</strong> naar kern</li>
+      </ul>
+    </div>
+    <div class="box amber">
+      <h4>Hogedrukgebied (H)</h4>
+      <ul>
+        <li>Koude lucht daalt naar beneden</li>
+        <li>Dalende lucht warmt op → rel. vochtigheid daalt</li>
+        <li>Geen condensatie → <strong>blauwe hemel</strong></li>
+        <li>NH: lucht draait <strong>wijzerzin</strong> van kern weg</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub-h">🌀 De drie circulatiecellen (per halfrond)</div>
+  <div class="cards">
+    <div class="card rose">
+      <div class="tag">Hadleycel · 0° – 30°</div>
+      <h4>Tropisch</h4>
+      <p>Lucht stijgt aan evenaar (L) → naar hoogte → daalt bij 30° (H subtropisch) → passaatwinden aan oppervlak</p>
+    </div>
+    <div class="card amber">
+      <div class="tag">Ferrelcel · 30° – 60°</div>
+      <h4>Gematigd</h4>
+      <p>Minder duidelijk, onregelmatiger. Westenwinden dominant. <strong>België</strong> valt hier → ZW-winden!</p>
+    </div>
+    <div class="card cyan">
+      <div class="tag">Polaire cel · 60° – 90°</div>
+      <h4>Polair</h4>
+      <p>Koude lucht daalt aan pool (H polair) → stijgt bij 60° (L subpolair)</p>
+    </div>
+  </div>
+
+  <div class="sub-h">🌐 Drukgebieden op de globe</div>
+  <table>
+    <thead><tr><th>Naam</th><th>Breedte</th><th>Type</th><th>Klimaat</th></tr></thead>
+    <tbody>
+      <tr><td>Equatoriaal minimum</td><td>0°</td><td><span class="hr">L</span></td><td>Heet, vochtig, tropisch regenwoud (ITCZ)</td></tr>
+      <tr><td>Subtropisch maximum</td><td>±30°</td><td><span class="ha">H</span></td><td>Droog, woestijnen (Sahara)</td></tr>
+      <tr><td>Subpolair minimum</td><td>±60°</td><td><span class="hr">L</span></td><td>Wisselvallig, veel neerslag</td></tr>
+      <tr><td>Polair maximum</td><td>±90°</td><td><span class="ha">H</span></td><td>Koud en droog</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-h">🔄 Corioliskracht — afbuiging door aardrotatie</div>
+  <div class="two">
+    <div class="box indigo">
+      <h4>Noordelijk halfrond</h4>
+      <p>Wind buigt af naar <strong>rechts</strong>.<br>
+      Van pool naar evenaar: omtreksnelheid neemt toe → wind <em>blijft achter</em> → afbuiging naar <strong>westen</strong> (wind uit O).<br>
+      Van evenaar naar pool: omtreksnelheid neemt af → wind <em>waait voor</em> → afbuiging naar <strong>oosten</strong> (wind uit W).</p>
+    </div>
+    <div class="box violet">
+      <h4>Zuidelijk halfrond</h4>
+      <p>Wind buigt af naar <strong>links</strong>. Omgekeerde spiraalrichting bij L en H t.o.v. NH.</p>
+    </div>
+  </div>
+
+  <div class="box emerald">
+    <h4>💡 Windrichting verklaren — altijd 2-ledig!</h4>
+    <ul>
+      <li><strong>Verticale component (N↔Z):</strong> afhankelijk van ligging H en L (wind gaat van H naar L)</li>
+      <li><strong>Horizontale component (O↔W):</strong> afhankelijk van corioliskracht (omtreksnelheidsverschil)</li>
+    </ul>
+  </div>
+
+  <div class="sub-h">📋 Windvoorbeelden</div>
+  <table>
+    <thead><tr><th>Locatie &amp; tijdstip</th><th>Wind</th><th>Verklaring</th></tr></thead>
+    <tbody>
+      <tr><td>Mumbai in juli</td><td><span class="he">ZW-moesson</span></td><td>Van H in Indische Oceaan naar L in Azië; hogere → lagere omtreksnelheid (wind waait voor)</td></tr>
+      <tr><td>Lima (heel jaar)</td><td><span class="hc">ZO-passaat</span></td><td>Van 30°Z max. naar equatoriaal min.; kleinere → grotere omtreksnelheid (wind blijft achter)</td></tr>
+      <tr><td>Hongkong in januari</td><td><span class="hr">NO-wind</span></td><td>Van Siberisch max. in winter naar min. bij evenaar; afbuiging naar rechts (NH)</td></tr>
+      <tr><td>België</td><td><span class="ha">ZW-wind</span></td><td>Ferrelcel; IJslandminimum (L) ten N, Azorenmaximum (H) ten Z; corioliskracht naar rechts</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ═══════════════════ S16: LUCHTVOCHTIGHEID ════ -->
+<div class="section" id="s15">
+  <div class="section-badge"><span class="num">15</span> Hoofdstuk 4.4</div>
+  <h2>Luchtvochtigheid &amp; neerslagverdeling</h2>
+  <div class="desc">Temperatuurverschillen bepalen ook waar het nat of droog is op aarde</div>
+
+  <div class="two">
+    <div class="box emerald">
+      <h4>🌧️ Lagedrukgebied (L) = nat</h4>
+      <ul>
+        <li>Warme lucht stijgt op → koelt af</li>
+        <li>Relatieve vochtigheid stijgt</li>
+        <li>Condensatie → wolken → neerslag</li>
+        <li>Voorbeeld: ITCZ / evenaar → tropisch regenwoud</li>
+      </ul>
+    </div>
+    <div class="box amber">
+      <h4>☀️ Hogedrukgebied (H) = droog</h4>
+      <ul>
+        <li>Lucht daalt → warmt op</li>
+        <li>Relatieve vochtigheid daalt</li>
+        <li>Geen condensatie → geen wolken</li>
+        <li>Voorbeeld: keerkringen (~30°) → Sahara</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub-h">🌐 ITCZ — Intertropische Convergentiezone</div>
+  <div class="box">
+    <h4>Wat is de ITCZ?</h4>
+    <p>Denkbeeldige lijn nabij de evenaar waar veel <strong>opstijgende, warme en vochtige lucht</strong> aanwezig is → zichtbaar als wolkenband vanuit de ruimte. Schuift mee met de seizoenen (volgt loodrechte zonnestand). Ook gekend als de <strong>doldrums</strong> — gevaarlijke windstille zone voor zeilers. De groei van de vegetatie in Afrika volgt de ITCZ.</p>
+  </div>
+
+  <div class="sub-h">🌦️ Moesson</div>
+  <div class="box rose">
+    <h4>Seizoenaal wisselende wind</h4>
+    <p><strong>Nat seizoen:</strong> wind brengt vochtige lucht mee → enorme hoeveelheden neerslag.<br>
+    <strong>Droog seizoen:</strong> wind draait om → nauwelijks neerslag.<br>
+    Voorbeeld: India/Goa kan op één maand meer regen hebben dan een heel jaar in België (jaarlijks gemiddelde België = 820 mm).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ S17: WEER W-EUROPA ════════ -->
+<div class="section" id="s16">
+  <div class="section-badge"><span class="num">16</span> Hoofdstuk 4.5</div>
+  <h2>Het weer in West-Europa</h2>
+  <div class="desc">Klimaat, fronten, weerkaarten &amp; weersvoorspelling — alles komt samen</div>
+
+  <div class="sub-h">🗺️ Factoren die ons klimaat bepalen</div>
+  <div class="cards">
+    <div class="card cyan">
+      <div class="tag">Golfstroom</div>
+      <h4>🌊</h4>
+      <p>Warme oceaanstroom → zachte winters; matigt ook zomers</p>
+    </div>
+    <div class="card amber">
+      <div class="tag">Azorenmaximum</div>
+      <h4>H — subtropisch</h4>
+      <p>Stabiel H in Atlantische Oceaan → droog, warm, helder</p>
+    </div>
+    <div class="card indigo">
+      <div class="tag">IJslandminimum</div>
+      <h4>L — subpolair</h4>
+      <p>Stabiel L → bewolkt, wisselvallig, neerslag</p>
+    </div>
+    <div class="card emerald">
+      <div class="tag">Klimaat</div>
+      <h4>Koelgematigd</h4>
+      <p>Zachte winter, koele zomer. Hoe westelijker → meer neerslag (maritieme invloed)</p>
+    </div>
+  </div>
+
+  <div class="box indigo">
+    <h4>📡 Meteosat-weersatellieten</h4>
+    <ul>
+      <li><strong>Visueel:</strong> kleur/albedo van aardoppervlak → nadeel: werkt niet 's nachts</li>
+      <li><strong>Infrarood (IR):</strong> temperatuurinfo → werkt ook 's nachts; warmst = zwart, koud = wit</li>
+    </ul>
+  </div>
+
+  <div class="sub-h">💨 Isobaren &amp; windkracht</div>
+  <div class="two">
+    <div class="box rose">
+      <h4>Isobaren dicht op elkaar</h4>
+      <p>Groot luchtdrukverschil over korte afstand → <strong>hoge windsnelheid</strong></p>
+    </div>
+    <div class="box emerald">
+      <h4>Isobaren ver van elkaar</h4>
+      <p>Klein luchtdrukverschil → <strong>lage windsnelheid</strong></p>
+    </div>
+  </div>
+
+  <div class="sub-h">🌩️ De drie soorten fronten</div>
+  <div class="box cyan" style="margin-bottom:0.7rem;">
+    <h4>❄️ Koufront (blauwe driehoekjes)</h4>
+    <ul>
+      <li>Koude lucht schuift onder warme lucht → warme lucht snel de hoogte in</li>
+      <li><strong>Agressief</strong>: plotse weersverandering, hevige buien, onweer/hagel mogelijk, rukwinden</li>
+      <li>Wolken (laag → hoog): stratocumulus, cumulus, cumulonimbus</li>
+      <li>Na doortocht: temperatuurdaling, opklaring</li>
+    </ul>
+  </div>
+  <div class="box amber" style="margin-bottom:0.7rem;">
+    <h4>🌡️ Warmtefront (rode bolletjes)</h4>
+    <ul>
+      <li>Warme lucht duwt koude lucht weg → stijgt traag en rustig omhoog</li>
+      <li><strong>Geleidelijk</strong>: aanhoudende motregen, lange aanloop</li>
+      <li>Wolken (hoog naar laag): cirrus → cirrostratus → altostratus → nimbostratus</li>
+      <li>Na doortocht: temperatuurstijging, warme sector</li>
+    </ul>
+  </div>
+  <div class="box violet" style="margin-bottom:0.7rem;">
+    <h4>🔀 Occlusiefront (paarse symbolen)</h4>
+    <ul>
+      <li>Koufront <strong>haalt warmtefront in</strong> → warmtefront wordt de hoogte ingestuurd</li>
+      <li>Begint als warmtefront (cirrus), snel hevige buien (cumulonimbus)</li>
+      <li>Onderdeel van een <strong>frontale depressie</strong></li>
+    </ul>
+  </div>
+
+  <div class="box rose">
+    <h4>🌀 Frontale depressie</h4>
+    <ul>
+      <li>Volledig systeem van fronten rondom een L</li>
+      <li>Verplaatst <strong>west → oost</strong> door Europa (±1 000 km/dag)</li>
+      <li>Onstabiel en wisselvallig weer</li>
+      <li>Groot luchtdrukverschil H–L → <strong>stormdepressie</strong></li>
+    </ul>
+  </div>
+
+  <div class="sub-h">☀️ Hogedrukgebied — blauwe hemel verklaard</div>
+  <div class="chain">
+    <div class="ci">H = dalende lucht</div><div class="ca">→</div>
+    <div class="ci">Warmt op bij daling</div><div class="ca">→</div>
+    <div class="ci">Rel. vochtigheid daalt</div><div class="ca">→</div>
+    <div class="ci">Geen condensatie</div><div class="ca">→</div>
+    <div class="ci">Geen wolken</div><div class="ca">→</div>
+    <div class="ci">☀️ Blauwe hemel</div>
+  </div>
+
+  <div class="box amber">
+    <h4>❓ Koud in de winter MAAR toch blauwe hemel?</h4>
+    <p>Zonlicht valt onder een <strong>lage invalshoek</strong> in de winter → dezelfde hoeveelheid energie over een groter oppervlak verspreid → minder opwarming → koud weer, ondanks zonneschijn en hogedrukgebied.</p>
+  </div>
+
+  <div class="sub-h">🌍 Luchtsoorten voor West-Europa</div>
+  <table>
+    <thead><tr><th>Luchtsoort</th><th>Herkomst</th><th>Effect</th></tr></thead>
+    <tbody>
+      <tr><td>Arctisch</td><td>Poolstreken (N)</td><td>Extreem koud en droog</td></tr>
+      <tr><td>Polair maritiem</td><td>Atlantische Oceaan (NW)</td><td>Koel en vochtig, veel neerslag</td></tr>
+      <tr><td>Polair continentaal</td><td>Rusland/Oost-Europa (O)</td><td>Koud en droog (winter), warm en droog (zomer)</td></tr>
+      <tr><td>Tropisch maritiem</td><td>Atlantische Oceaan (ZW)</td><td>Warm en vochtig, zacht</td></tr>
+      <tr><td>Tropisch continentaal</td><td>Noord-Afrika (Z)</td><td>Warm en droog, soms Sahara-stof</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  samenvatting · het systeem aarde · aardrijkskunde 5 · isaac module 2 · d&amp;a-finaliteit · h3 niet te kennen
+</div>
+
+</body>
+</html>
